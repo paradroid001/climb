@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bondvgauyjts3"]
 
-[ext_resource type="PackedScene" uid="uid://du7cyiipmfpus" path="res://Scenes/player.tscn" id="1_x87qo"]
-[ext_resource type="PackedScene" uid="uid://d3mprmfps8pkk" path="res://Scenes/level_1.tscn" id="2_b6fju"]
+[ext_resource type="PackedScene" uid="uid://du7cyiipmfpus" path="res://Scenes/Actor/player.tscn" id="1_x87qo"]
+[ext_resource type="PackedScene" uid="uid://d3mprmfps8pkk" path="res://Scenes/Level/level_1.tscn" id="2_b6fju"]
 [ext_resource type="Script" uid="uid://bqt08mm4he70i" path="res://Scenes/h_box_splitscreen.gd" id="3_6h5vk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_03aes"]
@@ -19,7 +19,13 @@ position = Vector2(-17, -19)
 z_index = 2
 position = Vector2(26, -24)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Level1" unique_id=1657743449]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level1" unique_id=237136369]
+position = Vector2(-16, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/StaticBody2D" unique_id=1684863228]
+shape = SubResource("WorldBoundaryShape2D_03aes")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1657743449 node_paths=PackedStringArray("level", "svp1", "svp2", "cam1", "cam2", "player1", "player2")]
 offset_left = -480.0
 offset_top = -270.0
 offset_right = 480.0
@@ -28,38 +34,39 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_6h5vk")
+level = NodePath("../Level1")
+svp1 = NodePath("SubViewportContainer/SubViewport")
+svp2 = NodePath("SubViewportContainer2/SubViewport")
+cam1 = NodePath("SubViewportContainer/SubViewport/Camera2D")
+cam2 = NodePath("SubViewportContainer2/SubViewport/Camera2D")
+player1 = NodePath("../Level1/Player")
+player2 = NodePath("../Level1/Player2")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Level1/HBoxContainer" unique_id=1794475415]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=1794475415]
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="Level1/HBoxContainer/SubViewportContainer" unique_id=1455262857]
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=1455262857]
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(478, 540)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="Level1/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1668038388]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1668038388]
 zoom = Vector2(2, 2)
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="Level1/HBoxContainer" unique_id=1936802535]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer" unique_id=1936802535]
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="Level1/HBoxContainer/SubViewportContainer2" unique_id=716488859]
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2" unique_id=716488859]
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(478, 540)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="Level1/HBoxContainer/SubViewportContainer2/SubViewport" unique_id=812321048]
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=812321048]
 enabled = false
 zoom = Vector2(2, 2)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=237136369]
-position = Vector2(-16, 85)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1684863228]
-shape = SubResource("WorldBoundaryShape2D_03aes")

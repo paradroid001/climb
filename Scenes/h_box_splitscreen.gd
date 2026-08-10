@@ -10,16 +10,17 @@ extends HBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	level = $"../Level1"
-	svp1 = $SubViewportContainer/SubViewport
-	svp2 = $SubViewportContainer2/SubViewport
-	cam1 = $SubViewportContainer/SubViewport/Camera2D
-	cam2 = $SubViewportContainer2/SubViewport/Camera2D
-	player1 = $"../Player"
-	player2 = $"../Player2"
+	#level = $"../Level1"
+	#svp1 = $SubViewportContainer/SubViewport
+	#svp2 = $SubViewportContainer2/SubViewport
+	#cam1 = $SubViewportContainer/SubViewport/Camera2D
+	#cam2 = $SubViewportContainer2/SubViewport/Camera2D
+	#player1 = $"../Player"
+	#player2 = $"../Player2"
 	
 	#svp1.get_viewport().world_2d = level
 	#svp2.get_viewport().world_2d = level
+	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

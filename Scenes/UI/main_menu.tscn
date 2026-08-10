@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://4wro1a7hvqie"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_03aes"]
+font_size = 100
+
+[node name="MainMenu" type="Control" unique_id=1923477346]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=2114637550]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1176898215]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -348.0
+offset_right = 348.0
+offset_bottom = 142.0
+grow_horizontal = 2
+text = "Climb Game"
+label_settings = SubResource("LabelSettings_03aes")
+horizontal_alignment = 1
+vertical_alignment = 1
