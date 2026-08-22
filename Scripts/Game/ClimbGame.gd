@@ -3,11 +3,12 @@ extends Node
 
 # This is the global game state.
 # Which players are connected, which controls they are using, etc
+var _settings: ClimbSettings
 var _players: Array[ClimbPlayer]
+var _characters: Array[ClimbCharacter]
 var _gamepad_info: Dictionary
+# Convenience: is a player using a certain device?
 var _device_to_player_index: Dictionary # map of device ids to player ids
-@export var max_players: int = 8
-@export var character_animations: Array[SpriteFrames]
 
 #Signals
 signal on_player_joined(player: ClimbPlayer)
@@ -15,6 +16,8 @@ signal on_player_leave(player: ClimbPlayer)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_settings = load("res://Resources/GameSettings.tres") as ClimbSettings
+	_characters = _settings.characters # the available characters
 	Input.joy_connection_changed.connect(detect_gamepads)
 	reset()
 
@@ -28,7 +31,7 @@ func reset() -> void:
 	_gamepad_info.clear()
 	_device_to_player_index.clear()	
 	# Fill players with null
-	for  id in range( max_players ):
+	for  id in range( _settings.MAX_PLAYERS ):
 		_players.push_back(null)
 	detect_gamepads(0, true)
 
@@ -53,6 +56,7 @@ func detect_new_player_input() -> void:
 				#create a new climb control
 				var control: ClimbControl = ClimbControl.new(id, ClimbControl.ControllerType.GAMEPAD) #assign_next_player_to_device(id)
 				var new_player_id:int = player_join(control)
+				# Add to the device to player map
 				if (new_player_id != -1):
 					_device_to_player_index[id] = new_player_id
 
@@ -70,8 +74,10 @@ func player_join(control: ClimbControl) -> int:
 		add_child(player)
 		on_player_joined.emit(_players[player_id])
 	return player_id
-	return -1
-	
+
 # A player leaves.
 func player_leave(index: int) -> void:
 	pass
+	
+func get_character_roster() -> Array[ClimbCharacter]:
+	return _characters

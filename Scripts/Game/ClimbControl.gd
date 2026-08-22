@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 
 func collect_gamepad_input(delta: float) -> void:
 	#for button_id in [JOY_BUTTON_DPAD_RIGHT, JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_UP, JOY_BUTTON_DPAD_DOWN]:
+	##var h: float = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
 	if Input.is_joy_button_pressed(device_id, JOY_BUTTON_DPAD_RIGHT):
 		direction.press(delta)
 	else:
