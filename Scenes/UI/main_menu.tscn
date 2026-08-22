@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://4wro1a7hvqie"]
 
+[ext_resource type="Script" uid="uid://c78wlo53ophi3" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
+[ext_resource type="PackedScene" uid="uid://cgp3ouhcdsslb" path="res://Scenes/UI/menu_player_config.tscn" id="2_i2xx2"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_03aes"]
 font_size = 100
 
-[node name="MainMenu" type="Control" unique_id=1923477346]
+[node name="MainMenu" type="Control" unique_id=1923477346 node_paths=PackedStringArray("hbox")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5wsvm")
+hbox = NodePath("Panel/Panel/HBoxContainer")
+player_config_prefab = ExtResource("2_i2xx2")
 
 [node name="Panel" type="Panel" parent="." unique_id=2114637550]
 layout_mode = 1
@@ -24,11 +30,30 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -348.0
-offset_right = 348.0
+offset_left = -347.0
+offset_right = 349.0
 offset_bottom = 142.0
 grow_horizontal = 2
 text = "Climb Game"
 label_settings = SubResource("LabelSettings_03aes")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=1822294017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel" unique_id=1441858736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1

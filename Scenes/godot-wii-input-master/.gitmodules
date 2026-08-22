@@ -1,0 +1,7 @@
+[submodule "godot-cpp"]
+	path = godot-cpp
+	url = https://github.com/godotengine/godot-cpp
+	branch = 4.4
+[submodule "docs/godot-docs"]
+	path = docs/godot-docs
+	url = https://github.com/godotengine/godot-docs

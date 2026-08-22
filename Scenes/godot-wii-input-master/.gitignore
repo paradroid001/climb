@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+*/.godot/
+*/android/
+*.obj
+*.dll
+*.exp
+*.lib
+*.os
+*.so
+*.dblite
+*.venv
+__pycache__
