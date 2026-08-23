@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ClimbSettings" format=3 uid="uid://bxo0bb1tspmmn"]
+
+[ext_resource type="Script" uid="uid://c1wpwvu0uvg4r" path="res://Scripts/Game/ClimbCharacter.gd" id="1_gq3im"]
+[ext_resource type="Resource" uid="uid://b50k00c1fqbyf" path="res://Resources/Characters/CharacterFrog.tres" id="2_n77a4"]
+[ext_resource type="Script" uid="uid://bg33ypedrc08m" path="res://Scripts/Game/ClimbSettings.gd" id="2_w0hw1"]
+[ext_resource type="Resource" uid="uid://du63tfo3r2wdm" path="res://Resources/Characters/CharacterMask.tres" id="3_57mmc"]
+[ext_resource type="Resource" uid="uid://b6dr41r7fabyp" path="res://Resources/Characters/CharacterPink.tres" id="4_om2op"]
+
+[resource]
+script = ExtResource("2_w0hw1")
+characters = Array[ExtResource("1_gq3im")]([ExtResource("2_n77a4"), ExtResource("3_57mmc"), ExtResource("4_om2op")])
+metadata/_custom_type_script = "uid://bg33ypedrc08m"
