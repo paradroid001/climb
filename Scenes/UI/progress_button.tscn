@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://wkcgjvmge7lq"]
+
+[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scenes/UI/progress_button.gd" id="1_uueka"]
+
+[node name="Control" type="Control" unique_id=1673576102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uueka")
+
+[node name="Button" type="Button" parent="." unique_id=1613479281]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Button" unique_id=762931293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true

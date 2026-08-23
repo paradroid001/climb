@@ -25,7 +25,7 @@ func press(dt: float) -> void:
 	else:
 		state_ = InputState.HELD
 		timeHeld_ += dt
-		print("Held")
+		#print("Held")
 		
 func release() -> void:
 	if is_held():

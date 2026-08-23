@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://csdns0dul8o6h" path="res://Scripts/UI/menu_player_config.gd" id="1_0wkjo"]
 [ext_resource type="SpriteFrames" uid="uid://bmmcjqte61no4" path="res://Sprites/SpriteFrames/sprite01.tres" id="2_55io2"]
+[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scenes/UI/progress_button.gd" id="2_dc4xe"]
+[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Sprites/PixelAdventure/Background/Green.png" id="4_iaf7r"]
 [ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Scenes/UI/climb_ui_theme.tres" id="5_dc4xe"]
+[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Sprites/PixelAdventure/Background/Pink.png" id="6_rqetb"]
 
 [node name="Control" type="Control" unique_id=1002004723 node_paths=PackedStringArray("_player_label", "_player_panel", "_player_sprite", "_button_ready", "_button_cancel")]
 custom_minimum_size = Vector2(150, 0)
@@ -45,8 +48,10 @@ text = "Player"
 horizontal_alignment = 1
 
 [node name="Panel_Character" type="Panel" parent="Panel/VBoxContainer" unique_id=1627386315]
+propagate_maximum_size = true
 layout_mode = 2
 size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
 focus_neighbor_bottom = NodePath("../Button_Ready")
 focus_mode = 2
 theme = ExtResource("5_dc4xe")
@@ -71,14 +76,29 @@ sprite_frames = ExtResource("2_55io2")
 autoplay = "default"
 centered = false
 
-[node name="Button_Ready" type="Button" parent="Panel/VBoxContainer" unique_id=1921536595]
+[node name="Button_Ready" type="Button" parent="Panel/VBoxContainer" unique_id=1921536595 node_paths=PackedStringArray("_progress", "_button")]
 custom_minimum_size = Vector2(0, 50)
+propagate_maximum_size = true
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Panel_Character")
 focus_neighbor_bottom = NodePath("../Button_Cancel")
 theme = ExtResource("5_dc4xe")
 toggle_mode = true
+script = ExtResource("2_dc4xe")
+_progress = NodePath("TextureProgressBar")
+_button = NodePath(".")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel/VBoxContainer/Button_Ready" unique_id=991544062]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+texture_progress = ExtResource("4_iaf7r")
+tint_progress = Color(1, 1, 1, 0.39215687)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Button_Ready" unique_id=1458878872]
 layout_mode = 1
@@ -93,12 +113,28 @@ grow_vertical = 2
 text = "(A): Ready!"
 horizontal_alignment = 1
 
-[node name="Button_Cancel" type="Button" parent="Panel/VBoxContainer" unique_id=34461613]
+[node name="Button_Cancel" type="Button" parent="Panel/VBoxContainer" unique_id=34461613 node_paths=PackedStringArray("_progress", "_button")]
 custom_minimum_size = Vector2(0, 50)
+propagate_maximum_size = true
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Button_Ready")
 theme = ExtResource("5_dc4xe")
+toggle_mode = true
+script = ExtResource("2_dc4xe")
+_progress = NodePath("TextureProgressBar")
+_button = NodePath(".")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Panel/VBoxContainer/Button_Cancel" unique_id=2137789451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+texture_progress = ExtResource("6_rqetb")
+tint_progress = Color(1, 1, 1, 0.39215687)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Button_Cancel" unique_id=703982373]
 layout_mode = 1

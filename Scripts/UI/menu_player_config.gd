@@ -1,13 +1,18 @@
 extends Control
 class_name MenuPlayerConfig
 
+# Timers for holding buttons for ready/unready
+@export var _time_to_ready: int = 2.0
+@export var _time_to_unready: int = 1.0
+
 @export var _player_label: Label
 @export var _player_panel: Panel
 @export var _player_sprite: AnimatedSprite2D
-@export var _button_ready: Button
-@export var _button_cancel: Button
+@export var _button_ready: ProgressButton
+@export var _button_cancel: ProgressButton
 
 signal on_player_ready(player_id: int, character_index: int)
+signal on_player_unready(player_id: int, character_index: int)
 
 var _current_character_index:int  = 0
 var _player_ready: bool
@@ -25,6 +30,10 @@ func _ready() -> void:
 	_player_ready = false
 	_player_panel.grab_focus.call_deferred()
 	_player_label.text = "Player "
+	
+	_button_ready.init(_time_to_ready)
+	_button_cancel.init(_time_to_unready)
+	
 	# Set the frames to the first entry
 	set_sprite_display(_current_character_index)
 
@@ -32,22 +41,39 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _connected_player_controls == null:
 		return
-		
+	# Selecting character (left and right)	
 	if !_player_ready and _connected_player_controls.direction.is_released():
 		increment_character(1)
 	
-	if (! _button_ready.button_pressed and
-		  _connected_player_controls.jump.is_held() and 
-		  _connected_player_controls.jump.time_held() > 2.0):
+	# Detecting if player is trying to ready
+	if ! _player_ready:
+		if _connected_player_controls.jump.is_held():
+			_button_ready.set_value(_connected_player_controls.jump.time_held())
+		if _connected_player_controls.jump.is_released():
+			_button_ready.reset()
+			
+		if _button_ready.button_pressed:
 			print("Player " + str(_player_id) + " is ready!")
 			_player_ready = true
-			_button_ready.button_pressed = true
 			on_player_ready.emit(_player_id, _current_character_index)
-
+	else: #if the player is ready
+		if _connected_player_controls.special.is_held():
+			_button_cancel.set_value(_connected_player_controls.special.time_held())
+		if _connected_player_controls.special.is_released():
+			_button_cancel.reset()
+			
+		if _button_cancel.button_pressed:
+			_button_ready.reset()
+			_button_cancel.reset()
+			_player_ready = false
+			print("Player " + str(_player_id) + " unreadied")
+			on_player_unready.emit(_player_id, _current_character_index)
+		
 # The menu is telling us that someone chose a character
 # Our map will be refreshed, we need to check if we are 'on' that char.
 # only if we aren't ready.
 func update_characters() -> void:
+	# Don't bother if we are already ready.
 	if _player_ready:
 		return
 		
