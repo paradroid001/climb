@@ -45,8 +45,11 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if device_type == ControllerType.GAMEPAD:
-		collect_gamepad_input(delta)
+	match device_type:
+		ControllerType.GAMEPAD:
+			collect_gamepad_input(delta)
+		ControllerType.KEYBOARD:
+			collect_kb_input(delta)
 
 func collect_gamepad_input(delta: float) -> void:
 	#for button_id in [JOY_BUTTON_DPAD_RIGHT, JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_UP, JOY_BUTTON_DPAD_DOWN]:
@@ -64,3 +67,9 @@ func collect_gamepad_input(delta: float) -> void:
 		special.press(delta)
 	else:
 		special.release()
+
+func collect_kb_input(delta: float) -> void:
+	if Input.is_action_pressed("ui_accept"):
+		jump.press(delta)
+	if Input.is_action_just_released("ui_accept"):
+		jump.release()

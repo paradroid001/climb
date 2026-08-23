@@ -1,72 +1,46 @@
 [gd_scene format=3 uid="uid://bondvgauyjts3"]
 
-[ext_resource type="PackedScene" uid="uid://du7cyiipmfpus" path="res://Scenes/Actor/player.tscn" id="1_x87qo"]
-[ext_resource type="PackedScene" uid="uid://d3mprmfps8pkk" path="res://Scenes/Level/level_1.tscn" id="2_b6fju"]
+[ext_resource type="Script" uid="uid://dmpp7u2jmlsmv" path="res://Scripts/game_scene.gd" id="1_6h5vk"]
 [ext_resource type="Script" uid="uid://bqt08mm4he70i" path="res://Scenes/h_box_splitscreen.gd" id="3_6h5vk"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_03aes"]
+[node name="GameScene" type="Node2D" unique_id=1701044029 node_paths=PackedStringArray("screen_container")]
+script = ExtResource("1_6h5vk")
+screen_container = NodePath("CanvasLayer/Control/HBoxContainer")
+_cam_zoom = Vector2(2, 2)
 
-[node name="GameScene" type="Node2D" unique_id=1701044029]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1305722542]
 
-[node name="Level1" parent="." unique_id=1878681158 instance=ExtResource("2_b6fju")]
-z_index = 1
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1764704550]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Player" parent="Level1" unique_id=64146397 instance=ExtResource("1_x87qo")]
-z_index = 2
-position = Vector2(-17, -19)
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1692636174]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Player2" parent="Level1" unique_id=739877926 instance=ExtResource("1_x87qo")]
-z_index = 2
-position = Vector2(26, -24)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level1" unique_id=237136369]
-position = Vector2(-16, 85)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/StaticBody2D" unique_id=1684863228]
-shape = SubResource("WorldBoundaryShape2D_03aes")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1657743449 node_paths=PackedStringArray("level", "svp1", "svp2", "cam1", "cam2", "player1", "player2")]
-offset_left = -480.0
-offset_top = -270.0
-offset_right = 480.0
-offset_bottom = 270.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1657743449 node_paths=PackedStringArray("level", "svp1", "svp2", "cam1", "cam2")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 4
 script = ExtResource("3_6h5vk")
-level = NodePath("../Level1")
-svp1 = NodePath("SubViewportContainer/SubViewport")
-svp2 = NodePath("SubViewportContainer2/SubViewport")
-cam1 = NodePath("SubViewportContainer/SubViewport/Camera2D")
-cam2 = NodePath("SubViewportContainer2/SubViewport/Camera2D")
-player1 = NodePath("../Level1/Player")
-player2 = NodePath("../Level1/Player2")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=1794475415]
-layout_mode = 2
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=1455262857]
-disable_3d = true
-handle_input_locally = false
-size = Vector2i(478, 540)
-render_target_update_mode = 4
-
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1668038388]
-zoom = Vector2(2, 2)
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer" unique_id=1936802535]
-layout_mode = 2
-size_flags_horizontal = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2" unique_id=716488859]
-disable_3d = true
-handle_input_locally = false
-size = Vector2i(478, 540)
-render_target_update_mode = 4
-
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=812321048]
-enabled = false
-zoom = Vector2(2, 2)
+level = NodePath("")
+svp1 = NodePath("")
+svp2 = NodePath("")
+cam1 = NodePath("")
+cam2 = NodePath("")

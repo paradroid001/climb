@@ -27,7 +27,7 @@ func set_value(value: float) -> float:
 		_button.button_pressed = true
 	else:
 		_button.button_pressed = false
-	print(str(_progress.value))
+	#print(str(_progress.value))
 	return _progress.value
 	
 func is_full() -> bool:

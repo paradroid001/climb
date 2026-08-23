@@ -5,7 +5,7 @@ enum ClimbPlayerState {NOT_PLAYING, SPAWNING, PLAYING, DYING }
 
 # Which global player index are we
 var _player_index:int
-var _sprite_frames: SpriteFrames
+var _character: ClimbCharacter
 var _control: ClimbControl
 var _state: ClimbPlayerState
 #var g_players: Array[ClimbPlayer] # the global player array
@@ -26,5 +26,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_sprite_frames(frames: SpriteFrames) -> void:
-	_sprite_frames = frames
+#func set_sprite_frames(frames: SpriteFrames) -> void:
+	#if _character == null
+		#print("Could not set sprite frames for player " + str(_player_index) + ", character was null")
+		#return
+	#_sprite_frames = frames

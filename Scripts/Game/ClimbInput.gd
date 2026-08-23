@@ -15,7 +15,7 @@ func _init() -> void:
 	timeHeld_ = 0
 	floatVal_ = 0
 	vec2Val_ = Vector2.ZERO
-	print("ClimbInput inited")
+	#print("ClimbInput inited")
 
 func press(dt: float) -> void:
 	if not_pressed():

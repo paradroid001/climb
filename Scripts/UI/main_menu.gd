@@ -42,9 +42,9 @@ func _process(delta: float) -> void:
 		_button_start_game.reset()
 		
 	# If the start button is pressed, we transition scenes.
+	if _button_start_game.button_pressed:
+		ClimbGameManager.load_scene("Game")
 	
-		
-
 func new_player_join(player: ClimbPlayer) -> void:
 	_player_count += 1
 	var player_config: MenuPlayerConfig = player_config_prefab.instantiate()
@@ -62,12 +62,14 @@ func new_player_join(player: ClimbPlayer) -> void:
 func player_is_ready(player_id: int, character_index: int) -> void:
 	# Mark character unavailable
 	_available_roster[character_index] = false
+	ClimbGameManager._players[player_id]._character = ClimbGameManager._characters[character_index]
 	_players_ready += 1
 	notify_character_availability_changed()
 	
 func player_is_unready(player_id: int, character_index: int) -> void:
 	# Free the character up
 	_available_roster[character_index] = true
+	ClimbGameManager._players[player_id]._character = null
 	_players_ready -= 1
 	notify_character_availability_changed()
 	
