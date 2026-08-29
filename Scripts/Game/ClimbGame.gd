@@ -112,10 +112,10 @@ func detect_gamepads(device: int, connected: bool) -> void:
 # source not currently assigned to any player.
 func detect_new_player_input() -> void:
 	# KB allow one player
-	if Input.is_action_just_pressed("ui_accept"):
-		var id = 999
+	if Input.is_key_pressed(KEY_SPACE):
+		var id = 99
 		if not id in _device_to_player_index.keys():
-			var control: ClimbControl = ClimbControl.new(id, ClimbControl.ControllerType.KEYBOARD)
+			var control: ClimbControl = ClimbControl.new(id, IGameInput.ControllerType.KEYBOARD)
 			var new_player_id:int = player_join(control)
 			# Add to the device to player map
 			if new_player_id != -1:
@@ -126,7 +126,7 @@ func detect_new_player_input() -> void:
 		if not id in _device_to_player_index.keys():
 			if Input.is_joy_button_pressed(id, JOY_BUTTON_A) or Input.is_joy_button_pressed(id, JOY_BUTTON_B):
 				#create a new climb control
-				var control: ClimbControl = ClimbControl.new(id, ClimbControl.ControllerType.GAMEPAD) #assign_next_player_to_device(id)
+				var control: ClimbControl = ClimbControl.new(id, IGameInput.ControllerType.GAMEPAD) #assign_next_player_to_device(id)
 				var new_player_id:int = player_join(control)
 				# Add to the device to player map
 				if new_player_id != -1:

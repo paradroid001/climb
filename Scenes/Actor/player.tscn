@@ -121,3 +121,5 @@ grow_vertical = 0
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1314655524]

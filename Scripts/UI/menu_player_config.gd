@@ -42,14 +42,14 @@ func _process(delta: float) -> void:
 	if _connected_player_controls == null:
 		return
 	# Selecting character (left and right)	
-	if !_player_ready and _connected_player_controls.direction.is_released():
+	if !_player_ready and _connected_player_controls.direction.just_released():
 		increment_character(1)
 	
 	# Detecting if player is trying to ready
 	if ! _player_ready:
-		if _connected_player_controls.jump.is_held():
+		if _connected_player_controls.jump.is_pressed():
 			_button_ready.set_value(_connected_player_controls.jump.time_held())
-		if _connected_player_controls.jump.is_released():
+		if _connected_player_controls.jump.just_released():
 			_button_ready.reset()
 			
 		if _button_ready.button_pressed:
@@ -57,9 +57,9 @@ func _process(delta: float) -> void:
 			_player_ready = true
 			on_player_ready.emit(_player_id, _current_character_index)
 	else: #if the player is ready
-		if _connected_player_controls.special.is_held():
+		if _connected_player_controls.special.is_pressed():
 			_button_cancel.set_value(_connected_player_controls.special.time_held())
-		if _connected_player_controls.special.is_released():
+		if _connected_player_controls.special.just_released():
 			_button_cancel.reset()
 			
 		if _button_cancel.button_pressed:
