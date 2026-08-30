@@ -28,15 +28,3 @@ func tick(delta: float) -> void:
 				_parent_action.on_pressed(_id, delta)
 			else:
 				_parent_action.on_released(_id, delta)
-					
-#func just_pressed() -> bool:
-	#return false
-	#
-#func is_pressed() -> bool:
-	#return false
-	#
-#func not_pressed() -> bool:
-	#return false
-	#
-#func just_released() -> bool:
-	#return false	

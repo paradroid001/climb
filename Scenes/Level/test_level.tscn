@@ -1,28 +1,32 @@
-[gd_scene format=4 uid="uid://d3mprmfps8pkk"]
+[gd_scene format=4 uid="uid://btvqckvtjv8c7"]
 
-[ext_resource type="Script" uid="uid://v63s78q3nlgg" path="res://Scripts/GameLevel.gd" id="1_q2tg5"]
-[ext_resource type="Texture2D" uid="uid://cmcykfildw85u" path="res://Sprites/PixelAdventure/Terrain/Terrain (16x16).png" id="1_vk57k"]
-[ext_resource type="Texture2D" uid="uid://bnlqvi2ap5n1b" path="res://Sprites/PixelAdventure/Background/Blue.png" id="2_xrdnt"]
-[ext_resource type="Texture2D" uid="uid://disbd73yp3fj7" path="res://Sprites/PixelAdventure/Background/Brown.png" id="3_wrinw"]
-[ext_resource type="Texture2D" uid="uid://dxfdwrpihbooh" path="res://Sprites/PixelAdventure/Background/Gray.png" id="4_chwpn"]
-[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Sprites/PixelAdventure/Background/Green.png" id="5_af3po"]
-[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Sprites/PixelAdventure/Background/Pink.png" id="6_uy8f0"]
-[ext_resource type="Texture2D" uid="uid://dl8gao5gqhixp" path="res://Sprites/PixelAdventure/Background/Purple.png" id="7_6r07y"]
-[ext_resource type="Texture2D" uid="uid://b554msfm0ue6v" path="res://Sprites/PixelAdventure/Background/Yellow.png" id="8_6ioyp"]
-[ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/spawn_point.tscn" id="10_d68a7"]
+[ext_resource type="Script" uid="uid://v63s78q3nlgg" path="res://Scripts/GameLevel.gd" id="1_f58i8"]
+[ext_resource type="Texture2D" uid="uid://bnlqvi2ap5n1b" path="res://Sprites/PixelAdventure/Background/Blue.png" id="2_7rhct"]
+[ext_resource type="Texture2D" uid="uid://disbd73yp3fj7" path="res://Sprites/PixelAdventure/Background/Brown.png" id="3_f2ynu"]
+[ext_resource type="Texture2D" uid="uid://dxfdwrpihbooh" path="res://Sprites/PixelAdventure/Background/Gray.png" id="4_r0nc6"]
+[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Sprites/PixelAdventure/Background/Green.png" id="5_pn3ef"]
+[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Sprites/PixelAdventure/Background/Pink.png" id="6_4rc2i"]
+[ext_resource type="Texture2D" uid="uid://dl8gao5gqhixp" path="res://Sprites/PixelAdventure/Background/Purple.png" id="7_k60cg"]
+[ext_resource type="Texture2D" uid="uid://b554msfm0ue6v" path="res://Sprites/PixelAdventure/Background/Yellow.png" id="8_5t4gx"]
+[ext_resource type="Texture2D" uid="uid://cmcykfildw85u" path="res://Sprites/PixelAdventure/Terrain/Terrain (16x16).png" id="9_x7qv6"]
+[ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/spawn_point.tscn" id="10_138tr"]
+[ext_resource type="PackedScene" uid="uid://du7cyiipmfpus" path="res://Scenes/Actor/player.tscn" id="12_f2ynu"]
+[ext_resource type="Resource" uid="uid://b50k00c1fqbyf" path="res://Resources/Characters/CharacterFrog.tres" id="13_4rc2i"]
+[ext_resource type="Script" uid="uid://bgnwh4poicslh" path="res://Scripts/Game/ClimbControl.gd" id="13_pn3ef"]
+[ext_resource type="PackedScene" uid="uid://cjsqdna3cvc5m" path="res://Scenes/Actor/player_camera.tscn" id="13_r0nc6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oovug"]
-texture = ExtResource("2_xrdnt")
+texture = ExtResource("2_7rhct")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i23i"]
-texture = ExtResource("3_wrinw")
+texture = ExtResource("3_f2ynu")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yhm2"]
-texture = ExtResource("4_chwpn")
+texture = ExtResource("4_r0nc6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -41,7 +45,7 @@ texture = ExtResource("4_chwpn")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjppf"]
-texture = ExtResource("5_af3po")
+texture = ExtResource("5_pn3ef")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -60,7 +64,7 @@ texture = ExtResource("5_af3po")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yltlr"]
-texture = ExtResource("6_uy8f0")
+texture = ExtResource("6_4rc2i")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -79,7 +83,7 @@ texture = ExtResource("6_uy8f0")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ssoq"]
-texture = ExtResource("7_6r07y")
+texture = ExtResource("7_k60cg")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -98,7 +102,7 @@ texture = ExtResource("7_6r07y")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imks0"]
-texture = ExtResource("8_6ioyp")
+texture = ExtResource("8_5t4gx")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -127,7 +131,7 @@ sources/5 = SubResource("TileSetAtlasSource_6ssoq")
 sources/6 = SubResource("TileSetAtlasSource_imks0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffim"]
-texture = ExtResource("1_vk57k")
+texture = ExtResource("9_x7qv6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -355,9 +359,9 @@ sources/0 = SubResource("TileSetAtlasSource_8ffim")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_03aes"]
 
-[node name="Level1" type="Node2D" unique_id=1878681158]
+[node name="TestLevel" type="Node2D" unique_id=1878681158]
 texture_filter = 1
-script = ExtResource("1_q2tg5")
+script = ExtResource("1_f58i8")
 powerup_impulse = Vector2(400, 500)
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=714960133]
@@ -369,68 +373,76 @@ tile_map_data = PackedByteArray("AAD8//3/AQAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAA
 tile_set = SubResource("TileSet_03aes")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=271522913]
-tile_map_data = PackedByteArray("AAD9/wAAAAAHAAAAAAD+/wAAAAAHAAAAAAD//wAAAAAHAAAAAAAAAAAAAAAHAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAAAAAD9/wEAAAAHAAEAAAD+/wEAAAAHAAEAAAD//wEAAAAHAAEAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAEAAAACAAEAAAAHAAEAAAACAAIAAAAHAAEAAAACAAMAAAAHAAEAAAACAAQAAAAHAAQAAAACAAUAAAAHAAEAAAACAAYAAAAHAAEAAAABAAYAAAAHAAEAAAAAAAYAAAAHAAEAAAD//wYAAAAHAAEAAAD+/wYAAAAHAAEAAAD9/wYAAAAHAAEAAAD9/wUAAAAHAAEAAAD9/wQAAAAHAAQAAAD9/wMAAAAHAAEAAAD9/wIAAAAHAAEAAAD+/wIAAAAHAAEAAAD//wIAAAAHAAEAAAAAAAIAAAAHAAEAAAABAAIAAAAHAAEAAAD+/wMAAAAHAAEAAAD//wMAAAAHAAEAAAAAAAMAAAAHAAEAAAABAAMAAAAHAAEAAAD//wQAAAAHAAQAAAD+/wQAAAAHAAQAAAAAAAQAAAAHAAQAAAABAAQAAAAHAAQAAAABAAUAAAAHAAEAAAD+/wUAAAAHAAEAAAD//wUAAAAHAAEAAAAAAAUAAAAHAAEAAAADAP3/AAAGAAAAAAAEAP3/AAAHAAAAAAAFAP3/AAAHAAAAAAAGAP3/AAAHAAAAAAAHAP3/AAAHAAAAAAAIAP3/AAAHAAAAAAD8//3/AAAIAAAAAAD7//3/AAAHAAAAAAD6//3/AAAHAAAAAAD5//3/AAAHAAAAAAD4//3/AAAHAAAAAAD8//7/AAAHAAEAAAD8////AAAHAAEAAAD8/wAAAAAHAAEAAAD8/wEAAAAHAAEAAAD8/wIAAAAHAAEAAAD8/wMAAAAHAAEAAAD8/wQAAAAHAAQAAAADAP7/AAAHAAEAAAADAP//AAAHAAEAAAADAAAAAAAHAAEAAAADAAEAAAAHAAEAAAADAAIAAAAHAAEAAAADAAMAAAAHAAEAAAADAAQAAAAHAAQAAAADAAUAAAAHAAEAAAD4//7/AAAHAAEAAAD4////AAAHAAEAAAD4/wAAAAAHAAEAAAD4/wEAAAAHAAEAAAD4/wIAAAAHAAEAAAD4/wMAAAAHAAEAAAD4/wQAAAAHAAQAAAD4/wUAAAAHAAEAAAD4/wYAAAAHAAEAAAD5//7/AAAHAAEAAAD5////AAAHAAEAAAD5/wAAAAAHAAEAAAD5/wEAAAAHAAEAAAD5/wIAAAAHAAEAAAD5/wMAAAAHAAEAAAD5/wQAAAAHAAQAAAD5/wUAAAAHAAEAAAD5/wYAAAAHAAEAAAD6//7/AAAHAAEAAAD6////AAAHAAEAAAD6/wAAAAAHAAEAAAD6/wEAAAAHAAEAAAD6/wIAAAAHAAEAAAD6/wMAAAAHAAEAAAD6/wQAAAAHAAQAAAD6/wUAAAAHAAEAAAD6/wYAAAAHAAEAAAD7//7/AAAHAAEAAAD7////AAAHAAEAAAD7/wAAAAAHAAEAAAD7/wEAAAAHAAEAAAD7/wIAAAAHAAEAAAD7/wMAAAAHAAEAAAD7/wQAAAAHAAQAAAD7/wUAAAAHAAEAAAD7/wYAAAAHAAEAAAD8/wUAAAAHAAEAAAD8/wYAAAAHAAEAAAADAAYAAAAHAAEAAAAEAP7/AAAHAAEAAAAEAP//AAAHAAEAAAAEAAAAAAAHAAEAAAAEAAEAAAAHAAEAAAAEAAIAAAAHAAEAAAAEAAMAAAAHAAEAAAAEAAQAAAAHAAQAAAAEAAUAAAAHAAEAAAAEAAYAAAAHAAEAAAAFAP7/AAAHAAEAAAAFAP//AAAHAAEAAAAFAAAAAAAHAAEAAAAFAAEAAAAHAAEAAAAFAAIAAAAHAAEAAAAFAAMAAAAHAAEAAAAFAAQAAAAHAAQAAAAFAAUAAAAHAAEAAAAFAAYAAAAHAAEAAAAGAP7/AAAHAAEAAAAGAP//AAAHAAEAAAAGAAAAAAAHAAEAAAAGAAEAAAAHAAEAAAAGAAIAAAAHAAEAAAAGAAMAAAAHAAEAAAAGAAQAAAAHAAQAAAAGAAUAAAAHAAEAAAAGAAYAAAAHAAEAAAAHAP7/AAAHAAEAAAAHAP//AAAHAAEAAAAHAAAAAAAHAAEAAAAHAAEAAAAHAAEAAAAHAAIAAAAHAAEAAAAHAAMAAAAHAAEAAAAHAAQAAAAHAAQAAAAHAAUAAAAHAAEAAAAHAAYAAAAHAAEAAAAIAP7/AAAHAAEAAAAIAP//AAAHAAEAAAAIAAAAAAAHAAEAAAAIAAEAAAAHAAEAAAAIAAIAAAAHAAEAAAAIAAMAAAAHAAEAAAAIAAQAAAAHAAQAAAAIAAUAAAAHAAEAAAAIAAYAAAAHAAEAAAD9//r/AAAHAAQAAAD9//v/AAAGAAUAAAD9//z/AAAGAAUAAAD9//3/AAAGAAUAAAD9//7/AAAGAAUAAAD9////AAAGAAUAAAD+//r/AAAHAAQAAAD+//v/AAAHAAUAAAD+//z/AAAHAAUAAAD+//3/AAAHAAUAAAD+//7/AAAHAAUAAAD+////AAAHAAUAAAD///r/AAAHAAQAAAD///v/AAAHAAUAAAD///z/AAAHAAUAAAD///3/AAAHAAUAAAD///7/AAAHAAUAAAD/////AAAHAAUAAAAAAPr/AAAHAAQAAAAAAPv/AAAHAAUAAAAAAPz/AAAHAAUAAAAAAP3/AAAHAAUAAAAAAP7/AAAHAAUAAAAAAP//AAAHAAUAAAABAPr/AAAHAAQAAAABAPv/AAAHAAUAAAABAPz/AAAHAAUAAAABAP3/AAAHAAUAAAABAP7/AAAHAAUAAAABAP//AAAHAAUAAAACAPr/AAAHAAQAAAACAPv/AAAHAAUAAAACAPz/AAAHAAUAAAACAP3/AAAHAAUAAAACAP7/AAAHAAUAAAACAP//AAAHAAUAAAD0//f/AAAHAAQAAAD0//j/AAAHAAUAAAD0//n/AAAHAAUAAAD0//r/AAAHAAUAAAD0//v/AAAHAAUAAAD0//z/AAAHAAUAAAD1//f/AAAHAAQAAAD1//j/AAAHAAUAAAD1//n/AAAHAAUAAAD1//r/AAAHAAUAAAD1//v/AAAHAAUAAAD1//z/AAAHAAUAAAD2//f/AAAHAAQAAAD2//j/AAAHAAUAAAD2//n/AAAHAAUAAAD2//r/AAAHAAUAAAD2//v/AAAHAAUAAAD2//z/AAAHAAUAAAD3//f/AAAHAAQAAAD3//j/AAAHAAUAAAD3//n/AAAHAAUAAAD3//r/AAAHAAUAAAD3//v/AAAHAAUAAAD3//z/AAAHAAUAAAD4//f/AAAHAAQAAAD4//j/AAAIAAUAAAD4//n/AAAIAAUAAAD4//r/AAAIAAUAAAD4//v/AAAIAAUAAAD4//z/AAAIAAUAAAAGAPf/AAAHAAQAAAAGAPj/AAAGAAUAAAAGAPn/AAAGAAUAAAAGAPr/AAAGAAUAAAAGAPv/AAAGAAUAAAAGAPz/AAAGAAUAAAAHAPf/AAAHAAQAAAAHAPj/AAAHAAUAAAAHAPn/AAAHAAUAAAAHAPr/AAAHAAUAAAAHAPv/AAAHAAUAAAAHAPz/AAAHAAUAAAAIAPf/AAAHAAQAAAAIAPj/AAAHAAUAAAAIAPn/AAAHAAUAAAAIAPr/AAAHAAUAAAAIAPv/AAAHAAUAAAAIAPz/AAAHAAUAAAAJAPf/AAAHAAQAAAAJAPj/AAAHAAUAAAAJAPn/AAAHAAUAAAAJAPr/AAAHAAUAAAAJAPv/AAAHAAUAAAAJAPz/AAAHAAUAAAAKAPf/AAAHAAQAAAAKAPj/AAAHAAUAAAAKAPn/AAAHAAUAAAAKAPr/AAAHAAUAAAAKAPv/AAAHAAUAAAAKAPz/AAAHAAUAAAALAPf/AAAHAAQAAAALAPj/AAAHAAUAAAALAPn/AAAHAAUAAAALAPr/AAAHAAUAAAALAPv/AAAHAAUAAAALAPz/AAAHAAUAAAAMAPf/AAAHAAQAAAAMAPj/AAAHAAUAAAAMAPn/AAAHAAUAAAAMAPr/AAAHAAUAAAAMAPv/AAAHAAUAAAAMAPz/AAAHAAUAAADx/wQAAAAHAAQAAADy/wQAAAAHAAQAAADz/wQAAAAHAAQAAAD0/wQAAAAHAAQAAAD1/wQAAAAHAAQAAAD2/wQAAAAHAAQAAAD3/wQAAAAHAAQAAAAJAAQAAAAHAAQAAAAKAAQAAAAHAAQAAAALAAQAAAAHAAQAAAAMAAQAAAAHAAQAAAANAAQAAAAHAAQAAAAOAAQAAAAHAAQAAAAPAAQAAAAHAAQAAAAQAAQAAAAHAAQAAADs/wQAAAAPAAUAAADt/wQAAAAHAAQAAADu/wQAAAAHAAQAAADv/wQAAAAHAAQAAADw/wQAAAAHAAQAAAARAAQAAAAHAAQAAAASAAQAAAAHAAQAAAATAAQAAAAHAAQAAAAUAAQAAAAPAAUAAAAVAAQAAAAHAAQAAAAUAOT/AAAPAAUAAAAUAOX/AAAPAAUAAAAUAOb/AAAPAAUAAAAUAOf/AAAPAAUAAAAUAOj/AAAPAAUAAAAUAOn/AAAPAAUAAAAUAOr/AAAPAAUAAAAUAOv/AAAPAAUAAAAUAOz/AAAPAAUAAAAUAO3/AAAPAAUAAAAUAO7/AAAPAAUAAAAUAO//AAAPAAUAAAAUAPD/AAAPAAUAAAAUAPH/AAAPAAUAAAAUAPL/AAAPAAUAAAAUAPP/AAAPAAUAAAAUAPT/AAAPAAUAAAAUAPX/AAAPAAUAAAAUAPb/AAAPAAUAAAAUAPf/AAAPAAUAAAAUAPj/AAAPAAUAAAAUAPn/AAAPAAUAAAAUAPr/AAAPAAUAAAAUAPv/AAAPAAUAAAAUAPz/AAAPAAUAAAAUAP3/AAAPAAUAAAAUAP7/AAAPAAUAAAAUAP//AAAPAAUAAAAUAAAAAAAPAAUAAAAUAAEAAAAPAAUAAAAUAAIAAAAPAAUAAAAUAAMAAAAPAAUAAADs/+P/AAAPAAUAAADs/+T/AAAPAAUAAADs/+X/AAAPAAUAAADs/+b/AAAPAAUAAADs/+f/AAAPAAUAAADs/+j/AAAPAAUAAADs/+n/AAAPAAUAAADs/+r/AAAPAAUAAADs/+v/AAAPAAUAAADs/+z/AAAPAAUAAADs/+3/AAAPAAUAAADs/+7/AAAPAAUAAADs/+//AAAPAAUAAADs//D/AAAPAAUAAADs//H/AAAPAAUAAADs//L/AAAPAAUAAADs//P/AAAPAAUAAADs//T/AAAPAAUAAADs//X/AAAPAAUAAADs//b/AAAPAAUAAADs//f/AAAPAAUAAADs//j/AAAPAAUAAADs//n/AAAPAAUAAADs//r/AAAPAAUAAADs//v/AAAPAAUAAADs//z/AAAPAAUAAADs//3/AAAPAAUAAADs//7/AAAPAAUAAADs////AAAPAAUAAADs/wAAAAAPAAUAAADs/wEAAAAPAAUAAADs/wIAAAAPAAUAAADs/wMAAAAPAAUAAAA=")
+tile_map_data = PackedByteArray("AAD9/wAAAAAHAAAAAAD+/wAAAAAHAAAAAAD//wAAAAAHAAAAAAAAAAAAAAAHAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAAAAAD9/wEAAAAHAAEAAAD+/wEAAAAHAAEAAAD//wEAAAAHAAEAAAAAAAEAAAAHAAEAAAABAAEAAAAHAAEAAAACAAEAAAAHAAEAAAACAAIAAAAHAAEAAAACAAMAAAAHAAEAAAACAAQAAAAHAAEAAAACAAUAAAAHAAEAAAACAAYAAAAHAAEAAAABAAYAAAAHAAEAAAAAAAYAAAAHAAEAAAD//wYAAAAHAAEAAAD+/wYAAAAHAAEAAAD9/wYAAAAHAAEAAAD9/wUAAAAHAAEAAAD9/wQAAAAHAAEAAAD9/wMAAAAHAAEAAAD9/wIAAAAHAAEAAAD+/wIAAAAHAAEAAAD//wIAAAAHAAEAAAAAAAIAAAAHAAEAAAABAAIAAAAHAAEAAAD+/wMAAAAHAAEAAAD//wMAAAAHAAEAAAAAAAMAAAAHAAEAAAABAAMAAAAHAAEAAAD//wQAAAAHAAEAAAD+/wQAAAAHAAEAAAAAAAQAAAAHAAEAAAABAAQAAAAHAAEAAAABAAUAAAAHAAEAAAD+/wUAAAAHAAEAAAD//wUAAAAHAAEAAAAAAAUAAAAHAAEAAAADAP3/AAAGAAAAAAAEAP3/AAAHAAAAAAAFAP3/AAAHAAAAAAAGAP3/AAAHAAAAAAAHAP3/AAAHAAAAAAAIAP3/AAAHAAAAAAD8//3/AAAIAAAAAAD7//3/AAAHAAAAAAD6//3/AAAHAAAAAAD5//3/AAAHAAAAAAD4//3/AAAHAAAAAAD8//7/AAAHAAEAAAD8////AAAHAAEAAAD8/wAAAAAHAAEAAAD8/wEAAAAHAAEAAAD8/wIAAAAHAAEAAAD8/wMAAAAHAAEAAAD8/wQAAAAHAAEAAAADAP7/AAAHAAEAAAADAP//AAAHAAEAAAADAAAAAAAHAAEAAAADAAEAAAAHAAEAAAADAAIAAAAHAAEAAAADAAMAAAAHAAEAAAADAAQAAAAHAAEAAAADAAUAAAAHAAEAAAD4//7/AAAHAAEAAAD4////AAAHAAEAAAD4/wAAAAAHAAEAAAD4/wEAAAAHAAEAAAD4/wIAAAAHAAEAAAD4/wMAAAAHAAEAAAD4/wQAAAAHAAEAAAD4/wUAAAAHAAEAAAD4/wYAAAAHAAEAAAD5//7/AAAHAAEAAAD5////AAAHAAEAAAD5/wAAAAAHAAEAAAD5/wEAAAAHAAEAAAD5/wIAAAAHAAEAAAD5/wMAAAAHAAEAAAD5/wQAAAAHAAEAAAD5/wUAAAAHAAEAAAD5/wYAAAAHAAEAAAD6//7/AAAHAAEAAAD6////AAAHAAEAAAD6/wAAAAAHAAEAAAD6/wEAAAAHAAEAAAD6/wIAAAAHAAEAAAD6/wMAAAAHAAEAAAD6/wQAAAAHAAEAAAD6/wUAAAAHAAEAAAD6/wYAAAAHAAEAAAD7//7/AAAHAAEAAAD7////AAAHAAEAAAD7/wAAAAAHAAEAAAD7/wEAAAAHAAEAAAD7/wIAAAAHAAEAAAD7/wMAAAAHAAEAAAD7/wQAAAAHAAEAAAD7/wUAAAAHAAEAAAD7/wYAAAAHAAEAAAD8/wUAAAAHAAEAAAD8/wYAAAAHAAEAAAADAAYAAAAHAAEAAAAEAP7/AAAHAAEAAAAEAP//AAAHAAEAAAAEAAAAAAAHAAEAAAAEAAEAAAAHAAEAAAAEAAIAAAAHAAEAAAAEAAMAAAAHAAEAAAAEAAQAAAAHAAEAAAAEAAUAAAAHAAEAAAAEAAYAAAAHAAEAAAAFAP7/AAAHAAEAAAAFAP//AAAHAAEAAAAFAAAAAAAHAAEAAAAFAAEAAAAHAAEAAAAFAAIAAAAHAAEAAAAFAAMAAAAHAAEAAAAFAAQAAAAHAAEAAAAFAAUAAAAHAAEAAAAFAAYAAAAHAAEAAAAGAP7/AAAHAAEAAAAGAP//AAAHAAEAAAAGAAAAAAAHAAEAAAAGAAEAAAAHAAEAAAAGAAIAAAAHAAEAAAAGAAMAAAAHAAEAAAAGAAQAAAAHAAEAAAAGAAUAAAAHAAEAAAAGAAYAAAAHAAEAAAAHAP7/AAAHAAEAAAAHAP//AAAHAAEAAAAHAAAAAAAHAAEAAAAHAAEAAAAHAAEAAAAHAAIAAAAHAAEAAAAHAAMAAAAHAAEAAAAHAAQAAAAHAAEAAAAHAAUAAAAHAAEAAAAHAAYAAAAHAAEAAAAIAP7/AAAHAAEAAAAIAP//AAAHAAEAAAAIAAAAAAAHAAEAAAAIAAEAAAAHAAEAAAAIAAIAAAAHAAEAAAAIAAMAAAAHAAEAAAAIAAQAAAAHAAEAAAAIAAUAAAAHAAEAAAAIAAYAAAAHAAEAAAD9//r/AAAHAAQAAAD9//v/AAAGAAUAAAD9//z/AAAGAAUAAAD9//3/AAAGAAUAAAD9//7/AAAGAAUAAAD9////AAAGAAUAAAD+//r/AAAHAAQAAAD+//v/AAAHAAUAAAD+//z/AAAHAAUAAAD+//3/AAAHAAUAAAD+//7/AAAHAAUAAAD+////AAAHAAUAAAD///r/AAAHAAQAAAD///v/AAAHAAUAAAD///z/AAAHAAUAAAD///3/AAAHAAUAAAD///7/AAAHAAUAAAD/////AAAHAAUAAAAAAPr/AAAHAAQAAAAAAPv/AAAHAAUAAAAAAPz/AAAHAAUAAAAAAP3/AAAHAAUAAAAAAP7/AAAHAAUAAAAAAP//AAAHAAUAAAABAPr/AAAHAAQAAAABAPv/AAAHAAUAAAABAPz/AAAHAAUAAAABAP3/AAAHAAUAAAABAP7/AAAHAAUAAAABAP//AAAHAAUAAAACAPr/AAAHAAQAAAACAPv/AAAHAAUAAAACAPz/AAAHAAUAAAACAP3/AAAHAAUAAAACAP7/AAAHAAUAAAACAP//AAAHAAUAAAD0//f/AAAHAAQAAAD0//j/AAAHAAUAAAD0//n/AAAHAAUAAAD0//r/AAAHAAUAAAD0//v/AAAHAAUAAAD0//z/AAAHAAUAAAD1//f/AAAHAAQAAAD1//j/AAAHAAUAAAD1//n/AAAHAAUAAAD1//r/AAAHAAUAAAD1//v/AAAHAAUAAAD1//z/AAAHAAUAAAD2//f/AAAHAAQAAAD2//j/AAAHAAUAAAD2//n/AAAHAAUAAAD2//r/AAAHAAUAAAD2//v/AAAHAAUAAAD2//z/AAAHAAUAAAD3//f/AAAHAAQAAAD3//j/AAAHAAUAAAD3//n/AAAHAAUAAAD3//r/AAAHAAUAAAD3//v/AAAHAAUAAAD3//z/AAAHAAUAAAD4//f/AAAHAAQAAAD4//j/AAAIAAUAAAD4//n/AAAIAAUAAAD4//r/AAAIAAUAAAD4//v/AAAIAAUAAAD4//z/AAAIAAUAAAAGAPf/AAAHAAQAAAAGAPj/AAAGAAUAAAAGAPn/AAAGAAUAAAAGAPr/AAAGAAUAAAAGAPv/AAAGAAUAAAAGAPz/AAAGAAUAAAAHAPf/AAAHAAQAAAAHAPj/AAAHAAUAAAAHAPn/AAAHAAUAAAAHAPr/AAAHAAUAAAAHAPv/AAAHAAUAAAAHAPz/AAAHAAUAAAAIAPf/AAAHAAQAAAAIAPj/AAAHAAUAAAAIAPn/AAAHAAUAAAAIAPr/AAAHAAUAAAAIAPv/AAAHAAUAAAAIAPz/AAAHAAUAAAAJAPf/AAAHAAQAAAAJAPj/AAAHAAUAAAAJAPn/AAAHAAUAAAAJAPr/AAAHAAUAAAAJAPv/AAAHAAUAAAAJAPz/AAAHAAUAAAAKAPf/AAAHAAQAAAAKAPj/AAAHAAUAAAAKAPn/AAAHAAUAAAAKAPr/AAAHAAUAAAAKAPv/AAAHAAUAAAAKAPz/AAAHAAUAAAALAPf/AAAHAAQAAAALAPj/AAAHAAUAAAALAPn/AAAHAAUAAAALAPr/AAAHAAUAAAALAPv/AAAHAAUAAAALAPz/AAAHAAUAAAAMAPf/AAAHAAQAAAAMAPj/AAAHAAUAAAAMAPn/AAAHAAUAAAAMAPr/AAAHAAUAAAAMAPv/AAAHAAUAAAAMAPz/AAAHAAUAAAA=")
 tile_set = SubResource("TileSet_q6j7s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=966144929]
 position = Vector2(1, 66)
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=326366100]
 shape = SubResource("WorldBoundaryShape2D_03aes")
 
-[node name="PlayerSpawnPoints" type="Node" parent="." unique_id=151430352]
+[node name="Player" parent="." unique_id=64146397 node_paths=PackedStringArray("_player_controls") instance=ExtResource("12_f2ynu")]
+position = Vector2(-95, -59)
+_player_character = ExtResource("13_4rc2i")
+_player_controls = NodePath("../ClimbControl")
 
-[node name="SpawnPoint" parent="PlayerSpawnPoints" unique_id=2124746330 instance=ExtResource("10_d68a7")]
-position = Vector2(145, 30)
+[node name="Player2" parent="." unique_id=1442827219 instance=ExtResource("12_f2ynu")]
+position = Vector2(74, -63)
+_player_character = ExtResource("13_4rc2i")
 
-[node name="SpawnPoint2" parent="PlayerSpawnPoints" unique_id=1721379205 instance=ExtResource("10_d68a7")]
-position = Vector2(-97, 28)
+[node name="PlayerCamera" parent="." unique_id=1024957243 node_paths=PackedStringArray("_player_target") instance=ExtResource("13_r0nc6")]
+position = Vector2(-62, -72)
+zoom = Vector2(2, 2)
+_player_target = NodePath("../Player")
 
-[node name="SpawnPoint3" parent="PlayerSpawnPoints" unique_id=1685063106 instance=ExtResource("10_d68a7")]
-position = Vector2(1, 31)
+[node name="ClimbControl" type="Node" parent="." unique_id=1567913514]
+script = ExtResource("13_pn3ef")
+device_id = 99
+device_type = 2
+metadata/_custom_type_script = "uid://bgnwh4poicslh"
 
-[node name="PowerupSpawnPoints" type="Node" parent="." unique_id=887116967]
+[node name="PlayerSpawns" type="Node" parent="." unique_id=1417690019]
 
-[node name="SpawnPoint" parent="PowerupSpawnPoints" unique_id=1262493964 instance=ExtResource("10_d68a7")]
-position = Vector2(-182, -167)
+[node name="SpawnPoint" parent="PlayerSpawns" unique_id=2124746330 instance=ExtResource("10_138tr")]
+position = Vector2(80, -74)
+
+[node name="SpawnPoint2" parent="PlayerSpawns" unique_id=1721379205 instance=ExtResource("10_138tr")]
+position = Vector2(-87, -74)
+
+[node name="SpawnPoint3" parent="PlayerSpawns" unique_id=1685063106 instance=ExtResource("10_138tr")]
+position = Vector2(0, -25)
+
+[node name="PowerupSpawns" type="Node" parent="." unique_id=194732174]
+
+[node name="SpawnPoint" parent="PowerupSpawns" unique_id=1080069710 instance=ExtResource("10_138tr")]
+position = Vector2(-36, -122)
+reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint2" parent="PowerupSpawnPoints" unique_id=56173799 instance=ExtResource("10_d68a7")]
-position = Vector2(-122, -167)
+[node name="SpawnPoint2" parent="PowerupSpawns" unique_id=1066390909 instance=ExtResource("10_138tr")]
+position = Vector2(32, -123)
+reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint3" parent="PowerupSpawnPoints" unique_id=1350284870 instance=ExtResource("10_d68a7")]
-position = Vector2(-41, -128)
+[node name="SpawnPoint3" parent="PowerupSpawns" unique_id=1515524323 instance=ExtResource("10_138tr")]
+position = Vector2(115, -169)
+reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint4" parent="PowerupSpawnPoints" unique_id=574943483 instance=ExtResource("10_d68a7")]
-position = Vector2(37, -128)
+[node name="SpawnPoint4" parent="PowerupSpawns" unique_id=1166502535 instance=ExtResource("10_138tr")]
+position = Vector2(188, -170)
+reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint5" parent="PowerupSpawnPoints" unique_id=2042075287 instance=ExtResource("10_d68a7")]
-position = Vector2(102, -169)
+[node name="SpawnPoint5" parent="PowerupSpawns" unique_id=620965368 instance=ExtResource("10_138tr")]
+position = Vector2(-184, -176)
+reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint6" parent="PowerupSpawnPoints" unique_id=897287811 instance=ExtResource("10_d68a7")]
-position = Vector2(189, -168)
-spawn_group = "PowerupSpawn"
-
-[node name="SpawnPoint7" parent="PowerupSpawnPoints" unique_id=2112620274 instance=ExtResource("10_d68a7")]
-position = Vector2(149, -167)
-spawn_group = "PowerupSpawn"
-
-[node name="SpawnPoint8" parent="PowerupSpawnPoints" unique_id=92671376 instance=ExtResource("10_d68a7")]
-position = Vector2(-120, -77)
-spawn_group = "PowerupSpawn"
-
-[node name="SpawnPoint9" parent="PowerupSpawnPoints" unique_id=1432160308 instance=ExtResource("10_d68a7")]
-position = Vector2(132, -77)
-spawn_group = "PowerupSpawn"
-
-[node name="SpawnPoint10" parent="PowerupSpawnPoints" unique_id=803669865 instance=ExtResource("10_d68a7")]
-position = Vector2(-36, -35)
-spawn_group = "PowerupSpawn"
-
-[node name="SpawnPoint11" parent="PowerupSpawnPoints" unique_id=1763298380 instance=ExtResource("10_d68a7")]
-position = Vector2(40, -32)
+[node name="SpawnPoint6" parent="PowerupSpawns" unique_id=1660591918 instance=ExtResource("10_138tr")]
+position = Vector2(-123, -177)
+reusable = true
 spawn_group = "PowerupSpawn"

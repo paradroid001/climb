@@ -32,13 +32,12 @@ func _ready() -> void:
 			else:
 				player_camera = _add_new_player_viewport(new_player)
 				
-			new_player.global_position = _level_node.get_random_spawn_point().assign()
+			new_player.global_position = _level_node.get_random_spawn_point(SpawnPoint.PLAYER_SPAWN_GROUP).assign()
 			_level_node.add_child(new_player)
 			player_camera.set_target(new_player)
 				
 			added_players += 1
 	_update_viewport_size()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

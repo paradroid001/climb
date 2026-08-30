@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ClimbCharacter" format=3 uid="uid://dvrafwjpyb7ni"]
+
+[ext_resource type="SpriteFrames" uid="uid://bl5covsiciamv" path="res://Sprites/SpriteFrames/sprite04.tres" id="1_5psq1"]
+[ext_resource type="Script" uid="uid://c1wpwvu0uvg4r" path="res://Scripts/Game/ClimbCharacter.gd" id="2_mhlgk"]
+
+[resource]
+script = ExtResource("2_mhlgk")
+character_name = "Astro"
+animation_frames = ExtResource("1_5psq1")
+metadata/_custom_type_script = "uid://c1wpwvu0uvg4r"

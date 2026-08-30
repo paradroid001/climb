@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1657743449 node_paths=PackedStringArray("level", "svp1", "svp2", "cam1", "cam2")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1657743449]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,8 +39,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 4
 script = ExtResource("3_6h5vk")
-level = NodePath("")
-svp1 = NodePath("")
-svp2 = NodePath("")
-cam1 = NodePath("")
-cam2 = NodePath("")

@@ -15,7 +15,6 @@ func _init(index: int, control: ClimbControl) -> void:
 	_control = control
 	add_child(_control) # make sure the control is a child, so it gets lifecycle
 	_state = ClimbPlayerState.NOT_PLAYING
-	# TODO need to go get sprite frames.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,8 +25,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-#func set_sprite_frames(frames: SpriteFrames) -> void:
-	#if _character == null
-		#print("Could not set sprite frames for player " + str(_player_index) + ", character was null")
-		#return
-	#_sprite_frames = frames
+func set_state(new_state: ClimbPlayerState) -> void:
+	pass

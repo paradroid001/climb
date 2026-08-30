@@ -27,13 +27,15 @@ func _ready() -> void:
 	# focus the player panel so navigation has a start point.
 	# TODO: We aren't going to use this in the end, focus is
 	# too hard with multiple controllers in the mix.
-	_player_ready = false
-	_player_panel.grab_focus.call_deferred()
+	
+	#_player_panel.grab_focus.call_deferred()
 	_player_label.text = "Player "
+	_player_ready = false
 	
 	_button_ready.init(_time_to_ready)
 	_button_cancel.init(_time_to_unready)
 	
+	update_characters() #sync with the available roster
 	# Set the frames to the first entry
 	set_sprite_display(_current_character_index)
 

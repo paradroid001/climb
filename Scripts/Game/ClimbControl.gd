@@ -1,8 +1,8 @@
 extends Node
 class_name ClimbControl
 
-var device_id: int
-var device_type: IGameInput.ControllerType
+@export var device_id: int
+@export var device_type: IGameInput.ControllerType
 
 """
 # mapping between name and device input
@@ -28,7 +28,7 @@ var direction: GameAction #ClimbInput
 var jump: GameAction #ClimbInput
 var special: GameAction #ClimbInput
 
-func _init(id: int, type: IGameInput.ControllerType) -> void:
+func _init(id: int = 99, type: IGameInput.ControllerType = IGameInput.ControllerType.KEYBOARD) -> void:
 	device_id = id
 	device_type = type
 	#direction = ClimbInput.new(ClimbInput.InputType.AXIS)

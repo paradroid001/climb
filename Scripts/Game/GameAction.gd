@@ -41,9 +41,10 @@ func on_pressed(id: String, delta: float) -> void:
 		#print("Pressed " + id)
 		_state = InputState.PRESSED
 		_time_held = delta
-	elif _state == InputState.PRESSED or _state == InputState.HELD:
+	elif (_state == InputState.PRESSED) or (_state == InputState.HELD):
+		#print("Held " + id)
 		_time_held += delta
-		_state == InputState.HELD
+		_state = InputState.HELD
 	
 # one of the inputs was released
 func on_released(id: String, delta: float) -> void:
@@ -54,6 +55,9 @@ func on_released(id: String, delta: float) -> void:
 	elif _state == InputState.RELEASED:
 		_state = InputState.NOT_PRESSED
 		_time_held = 0
+
+func get_state() -> InputState:
+	return _state
 
 func just_pressed() -> bool:
 	return _state == InputState.PRESSED
