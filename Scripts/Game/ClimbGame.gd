@@ -1,4 +1,7 @@
 extends Node
+
+const ON_COLLISION_SIGNAL: StringName = "body_entered"
+
 # not using class name because this is an autoload script, I want
 # to be able to call it something else.
 #class_name ClimbGame
@@ -20,7 +23,7 @@ var _device_to_player_index: Dictionary # map of device ids to player ids
 var _loading_screen: PackedScene
 var _scene_path_to_load: String
 var _load_scenes_with_threads: bool = true
-var _load_progress_value: Array[float] #this will only ever hold one value
+var _load_progress_value: Array[float] # this will only ever hold one value
 var _loaded_scene: PackedScene = null
 
 #Signals
@@ -60,7 +63,7 @@ func _process(delta: float) -> void:
 				get_tree().change_scene_to_packed(_loaded_scene)
 				_game_state = ClimbGameState.PLAYING
 				load_scene_finished.emit()
-	
+
 func load_scene(scene_name: String) -> bool:
 	if _game_state == ClimbGameState.LOADING:
 		print("Can't load a scene while an existing load is happening")
@@ -69,7 +72,7 @@ func load_scene(scene_name: String) -> bool:
 	if scene_path == null:
 		print("Scene path for " + scene_name + " did not exist in settings")
 		return false
-	
+
 	_game_state = ClimbGameState.LOADING
 	_scene_path_to_load = scene_path
 
@@ -77,24 +80,24 @@ func load_scene(scene_name: String) -> bool:
 	load_scene_progress_changed.connect(new_loading_screen._on_progress_changed)
 	load_scene_finished.connect(new_loading_screen._on_load_finished)
 	add_child(new_loading_screen)
-	
+
 	# wait for the loading screen to signal that it is ready
 	await new_loading_screen.loading_screen_ready
-	
+
 	var loadstate = ResourceLoader.load_threaded_request(_scene_path_to_load, "", _load_scenes_with_threads)
 	if loadstate != OK:
 		print("Error " + str(loadstate) + " trying to load the scene " + _scene_path_to_load)
 		return false
-	
+
 	return true
-	
+
 # resets the game - clears all player assignments
 func reset() -> void:
 	print("ClimbGame Resetting")
 	_gamepad_info.clear()
-	_device_to_player_index.clear()	
+	_device_to_player_index.clear()
 	# Fill players with null
-	for  id in range( _settings.MAX_PLAYERS ):
+	for id in range(_settings.MAX_PLAYERS):
 		_players.push_back(null)
 	detect_gamepads(0, true)
 
@@ -107,7 +110,7 @@ func detect_gamepads(device: int, connected: bool) -> void:
 		print("Joy " + str(id))
 		for key in _gamepad_info[id]:
 			print(str(key) + ": " + str(_gamepad_info[id][key]))
-			
+
 # Create a new player if there's any input from a
 # source not currently assigned to any player.
 func detect_new_player_input() -> void:
@@ -116,7 +119,7 @@ func detect_new_player_input() -> void:
 		var id = 99
 		if not id in _device_to_player_index.keys():
 			var control: ClimbControl = ClimbControl.new(id, IGameInput.ControllerType.KEYBOARD)
-			var new_player_id:int = player_join(control)
+			var new_player_id: int = player_join(control)
 			# Add to the device to player map
 			if new_player_id != -1:
 				_device_to_player_index[id] = new_player_id
@@ -126,8 +129,8 @@ func detect_new_player_input() -> void:
 		if not id in _device_to_player_index.keys():
 			if Input.is_joy_button_pressed(id, JOY_BUTTON_A) or Input.is_joy_button_pressed(id, JOY_BUTTON_B):
 				#create a new climb control
-				var control: ClimbControl = ClimbControl.new(id, IGameInput.ControllerType.GAMEPAD) #assign_next_player_to_device(id)
-				var new_player_id:int = player_join(control)
+				var control: ClimbControl = ClimbControl.new(id, IGameInput.ControllerType.GAMEPAD) # assign_next_player_to_device(id)
+				var new_player_id: int = player_join(control)
 				# Add to the device to player map
 				if new_player_id != -1:
 					_device_to_player_index[id] = new_player_id
@@ -150,6 +153,11 @@ func player_join(control: ClimbControl) -> int:
 # A player leaves.
 func player_leave(index: int) -> void:
 	pass
-	
+
 func get_character_roster() -> Array[ClimbCharacter]:
 	return _characters
+
+func get_climb_player(id: int) -> ClimbPlayer:
+	if id < _players.size():
+		return _players[id]
+	return null

@@ -2,7 +2,7 @@
 
 [ext_resource type="PhysicsMaterial" uid="uid://ds058ncily0sd" path="res://Resources/powerup_physics_material.tres" id="1_7cpjs"]
 [ext_resource type="SpriteFrames" uid="uid://ctjchgghbd1sx" path="res://Sprites/SpriteFrames/Powerup.tres" id="1_84ynv"]
-[ext_resource type="Script" uid="uid://cqgorqxq8jt7f" path="res://Scripts/powerup.gd" id="1_tbtft"]
+[ext_resource type="Script" uid="uid://d2gnxb8jecrky" path="res://Scripts/Powerup.gd" id="2_7cpjs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p78v0"]
 radius = 4.125542
@@ -14,7 +14,7 @@ collision_layer = 4
 collision_mask = 2
 physics_material_override = ExtResource("1_7cpjs")
 lock_rotation = true
-script = ExtResource("1_tbtft")
+script = ExtResource("2_7cpjs")
 _collision_area = NodePath("Area2D")
 _sprite = NodePath("AnimatedSprite2D")
 time_to_enable = 0.0

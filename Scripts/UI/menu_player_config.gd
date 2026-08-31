@@ -35,6 +35,12 @@ func _ready() -> void:
 	_button_ready.init(_time_to_ready)
 	_button_cancel.init(_time_to_unready)
 	
+	if _connected_player_controls.device_type == IGameInput.ControllerType.GAMEPAD:
+		_button_ready.text = "(B) Ready"
+		_button_cancel.text = "(A) Cancel"
+	elif _connected_player_controls.device_type == IGameInput.ControllerType.KEYBOARD:
+		_button_ready.text = "(Space) Ready"
+		_button_cancel.text = "(Ctrl) Cancel"
 	update_characters() #sync with the available roster
 	# Set the frames to the first entry
 	set_sprite_display(_current_character_index)

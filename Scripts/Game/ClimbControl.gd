@@ -27,13 +27,12 @@ const actions_ended: String = "ended"
 var direction: GameAction #ClimbInput
 var jump: GameAction #ClimbInput
 var special: GameAction #ClimbInput
+var _enabled: bool
 
 func _init(id: int = 99, type: IGameInput.ControllerType = IGameInput.ControllerType.KEYBOARD) -> void:
 	device_id = id
 	device_type = type
-	#direction = ClimbInput.new(ClimbInput.InputType.AXIS)
-	#jump = ClimbInput.new(ClimbInput.InputType.BUTTON)
-	#special = ClimbInput.new(ClimbInput.InputType.BUTTON)
+	_enabled = true
 	
 	direction = GameAction.new()
 	jump = GameAction.new()
@@ -94,17 +93,25 @@ func _init(id: int = 99, type: IGameInput.ControllerType = IGameInput.Controller
 	else:
 		print ("Unmsupported Input type")
 	
-	#joy:
-		#device_id: 1
-		#"horizontal": AXIS, 1
-		#"vertical": AXIS, 2
-		#"jump": BUTTON, BUTTON_A
-		#"special": BUTTON, BUTTON_B
-	#
-	#var joy_mapping: Dictionary[String, Dictionary[ClimbInput.InputType, int]]
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
 	
-	#AddKeyMappings()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if ! _enabled:
+		return
+	direction.tick(delta)
+	jump.tick(delta)
+	special.tick(delta)
 	
+func enable(on: bool) -> void:
+	_enabled = on
+
+func is_enabled() ->bool:
+	return _enabled
+
+# TODO this function is no longer used, we made our own action system
 func AddKeyMappings() -> void:
 	var action_name = "Jump"
 	# 1. Check if the action exists; if not, create it
@@ -120,46 +127,3 @@ func AddKeyMappings() -> void:
 	
 	# 3. Bind the physical key to the action
 	InputMap.action_add_event(action_name, key_event)
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#action_states[actions_started] = []
-	#action_states[actions_ended] = []
-	#action_states[actions_current] = []
-	pass
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	direction.tick(delta)
-	jump.tick(delta)
-	special.tick(delta)	
-	#match device_type:
-		#ControllerType.GAMEPAD:
-			#collect_gamepad_input(delta)
-		#ControllerType.KEYBOARD:
-			#collect_kb_input(delta)
-
-func collect_gamepad_input(delta: float) -> void:
-	#for button_id in [JOY_BUTTON_DPAD_RIGHT, JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_UP, JOY_BUTTON_DPAD_DOWN]:
-	##var h: float = Input.get_joy_axis(device_id, JOY_AXIS_LEFT_X)
-	if Input.is_joy_button_pressed(device_id, JOY_BUTTON_DPAD_RIGHT):
-		direction.press(delta)
-	else:
-		direction.release()
-	if Input.is_joy_button_pressed(device_id, JOY_BUTTON_A):
-		jump.press(delta)
-	else:
-		jump.release()
-	
-	if Input.is_joy_button_pressed(device_id, JOY_BUTTON_B):
-		special.press(delta)
-	else:
-		special.release()
-
-func collect_kb_input(delta: float) -> void:
-	if Input.is_action_pressed("Jump"):
-		print("Kb Jump")
-		jump.press(delta)
-	if Input.is_action_just_released("Jump"):
-		print("Kb jump released, held: " + str(jump.time_held()))
-		jump.release()

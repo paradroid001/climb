@@ -4,10 +4,11 @@ class_name GameLevel
 enum LevelState {SETTING_UP, PLAYING, WIN}
 
 signal all_players_joined
-signal player_has_won(player: ClimbPlayer)
+
 
 const _powerup_scene = preload("res://Scenes/Actor/powerup.tscn")
 @export var powerup_impulse: Vector2
+@export var _level_finish: LevelFinish
 var _state: LevelState = LevelState.SETTING_UP
 var spawns: Dictionary[String, Array]
 
@@ -39,6 +40,10 @@ func _ready() -> void:
 	var entire_tree_nodes: Array[Node] = get_tree().root.find_children("*", "PlayerMovement", true, false)
 	for item in entire_tree_nodes:
 		on_child_enter_tree(item)
+	
+	# if there actually is a level finish in the level (debug)
+	if _level_finish != null:
+		_level_finish.player_has_won.connect(win)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,6 +59,12 @@ func get_state() -> LevelState:
 	
 func set_state(new_state: LevelState) -> void:
 	pass
+
+func win(player: PlayerMovement) -> void:
+	print("Player won! " + ClimbGameManager.get_climb_player(player.get_player_id()).name)
+	for item:PlayerMovement in get_tree().get_nodes_in_group("player"):
+		item.enable_controls(false)
+	set_state(LevelState.WIN)
 
 func players_collided(p1: PlayerMovement, p2: PlayerMovement) -> void:
 	print("Players Collided! " + p1.name + ", " + p2.name)

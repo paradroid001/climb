@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du7cyiipmfpus"]
 
-[ext_resource type="Script" uid="uid://bij63yh526oo2" path="res://Scripts/player_movement.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://bneiwvr4pdeb3" path="res://Scripts/PlayerMovement.gd" id="1_t3aim"]
 [ext_resource type="Texture2D" uid="uid://dsw40hvrsmdob" path="res://Sprites/PixelAdventure/Main Characters/Virtual Guy/Idle (32x32).png" id="1_v0iea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
@@ -94,11 +94,12 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=64146397 node_paths=PackedStringArray("_player_sprite", "_player_area2D", "_name_label", "_eject_point")]
 collision_mask = 3
-script = ExtResource("1_cvnsp")
+script = ExtResource("1_t3aim")
 _player_sprite = NodePath("AnimatedSprite2D")
 _player_area2D = NodePath("Area2D")
 _name_label = NodePath("Label_Name")
 _eject_point = NodePath("EjectPoint")
+_max_flock_positions = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=183271708]
 position = Vector2(0, -16)

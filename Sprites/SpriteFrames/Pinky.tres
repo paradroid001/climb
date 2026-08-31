@@ -1,53 +1,53 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://4g66qcn7pewg"]
 
-[ext_resource type="Texture2D" uid="uid://db3tf80n7hmf6" path="res://Sprites/PixelAdventure/Main Characters/Pink Man/Run (32x32).png" id="1_w67rv"]
+[ext_resource type="Texture2D" uid="uid://db3tf80n7hmf6" path="res://Sprites/PixelAdventure/Main Characters/Pink Man/Run (32x32).png" id="1_x66ge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqi6p"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgi1y"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cjgm"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsth0"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpe66"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_du8pq"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53jtv"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ap5u"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3fm3"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(256, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02arf"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hrno"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tit8"]
-atlas = ExtResource("1_w67rv")
+atlas = ExtResource("1_x66ge")
 region = Rect2(352, 0, 32, 32)
 
 [resource]

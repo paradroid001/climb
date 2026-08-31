@@ -21,8 +21,10 @@ ClimbGameManager="*uid://busyrxcli6s7m"
 
 [display]
 
+window/size/mode=3
+window/size/borderless=true
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
+window/stretch/aspect="expand"
 
 [dotnet]
 
