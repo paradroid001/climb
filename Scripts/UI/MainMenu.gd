@@ -9,6 +9,7 @@ var _time_ready_elapsed: float = 0
 var _available_roster: Dictionary[int, bool]
 var _player_configs: Array[MenuPlayerConfig]
 
+@export var _version_label: Label
 @export var hbox: HBoxContainer
 @export var player_config_prefab : PackedScene
 @export var _button_start_game: ProgressButton
@@ -18,6 +19,7 @@ var _player_configs: Array[MenuPlayerConfig]
 func _ready() -> void:
 	# Set up the available roster:
 	var index = 0
+	_version_label.text = ClimbGameManager.get_overlay_text()
 	for character:ClimbCharacter in ClimbGameManager.get_character_roster():
 		_available_roster[index] = true #available
 		index +=1

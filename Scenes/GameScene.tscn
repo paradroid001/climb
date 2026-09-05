@@ -9,8 +9,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_03aes"]
 font_size = 41
 
-[node name="GameScene" type="Node2D" unique_id=1701044029 node_paths=PackedStringArray("screen_container", "_game_start_ui", "_game_win_ui")]
+[node name="GameScene" type="Node2D" unique_id=1701044029 node_paths=PackedStringArray("_version_label", "screen_container", "_game_start_ui", "_game_win_ui")]
 script = ExtResource("1_6h5vk")
+_version_label = NodePath("CanvasLayer/Control/VersionLabel")
 screen_container = NodePath("CanvasLayer/Control/HBoxContainer")
 _cam_zoom = Vector2(2, 2)
 _game_start_ui = NodePath("CanvasLayer/GameStartUI")
@@ -127,5 +128,14 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 4
+
+[node name="VersionLabel" type="Label" parent="CanvasLayer/Control" unique_id=56806894]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1083242162]

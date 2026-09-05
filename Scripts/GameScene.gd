@@ -3,6 +3,7 @@ extends Node
 const player_camera_scene = preload("res://Scenes/Actor/PlayerCamera.tscn")
 const player_scene = preload("res://Scenes/Actor/Player.tscn")
 
+@export var _version_label: Label
 @export var screen_container: HBoxContainer
 @export var _cam_zoom: Vector2 = Vector2.ONE
 @export var _game_start_ui: GameStartUI
@@ -18,6 +19,7 @@ func _ready() -> void:
 	# If we resize the game, resize the viewports
 	get_tree().root.size_changed.connect(_update_viewport_size)
 	var added_players: int = 0
+	_version_label.text = ClimbGameManager.get_overlay_text()
 	
 	for player in ClimbGameManager._players:
 		if player != null:
