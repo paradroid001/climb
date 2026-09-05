@@ -1,4 +1,12 @@
 extends Node
+class_name GameScene
+
+class PlayerViewport:
+	var player_id: int
+	var sub_viewport: SubViewport
+	var player_camera: PlayerCamera
+	var parallax_layer: Parallax2D 
+
 
 const player_camera_scene = preload("res://Scenes/Actor/PlayerCamera.tscn")
 const player_scene = preload("res://Scenes/Actor/Player.tscn")
@@ -10,6 +18,9 @@ const player_scene = preload("res://Scenes/Actor/Player.tscn")
 @export var _game_win_ui: GameWinUI
 
 var _level_to_load: String = "res://Scenes/Level/Level1.tscn"
+
+# Keeping track of added viewports - mapping of playerid to PlayerViewport
+var _player_viewports: Dictionary[int, PlayerViewport]
 var _first_subviewport : SubViewport = null
 # This is the actual loaded game level
 var _level_node: GameLevel = null
@@ -23,7 +34,7 @@ func _ready() -> void:
 	
 	for player in ClimbGameManager._players:
 		if player != null:
-			print("Adding player id " + str(player._player_index) + " as player " + str(added_players) )
+			print("Adding player id " + str(player.get_player_id()) + " as player " + str(added_players) )
 			# The player dectection system will already have set
 			# player id, controls, and character
 			# The PlayerMovement script will set the sprite frames
@@ -31,12 +42,16 @@ func _ready() -> void:
 			var new_player: PlayerMovement = player_scene.instantiate()
 			var player_camera: PlayerCamera = null
 			new_player.init_player(player._player_index)
+			var player_viewport = _add_new_player_viewport(new_player)
+			player_viewport.player_id = player.get_player_id()
 			if added_players == 0:
-				player_camera = _add_new_player_viewport(new_player)
 				_load_level() #loads level into first viewport, sets _level_node
-			else:
-				player_camera = _add_new_player_viewport(new_player)
-				
+			player_viewport.parallax_layer = _level_node._parallax_layer.duplicate()
+			player_viewport.sub_viewport.add_child(player_viewport.parallax_layer)
+			player_viewport.parallax_layer.visible = true
+			print("SV cam = " + player_viewport.sub_viewport.get_camera_2d().name)
+			player_camera = player_viewport.player_camera
+			_player_viewports[player.get_player_id()] = player_viewport
 			new_player.global_position = _level_node.get_random_spawn_point(SpawnPoint.PLAYER_SPAWN_GROUP).assign()
 			_level_node.add_child(new_player)
 			new_player.set_level(_level_node)
@@ -66,7 +81,9 @@ func _on_level_change_state(state: GameLevel.LevelState, old_state: GameLevel.Le
 		_game_win_ui.enable(true)
 	
 
-func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerCamera:
+func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerViewport:
+	var player_viewport: PlayerViewport = PlayerViewport.new()
+	 
 	var new_svc: SubViewportContainer = SubViewportContainer.new()
 	var new_sv: SubViewport = SubViewport.new()
 	# pixelly
@@ -81,6 +98,9 @@ func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerCamera:
 	new_svc.add_child(new_sv)
 	new_sv.add_child(new_cam)
 	
+	#make this camera the current for the subviewport
+	new_cam.make_current()
+	
 	if _first_subviewport != null:
 		# for non first viewports, the player has been passed in.
 		#new_cam.global_position = player_node.global_position
@@ -93,11 +113,17 @@ func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerCamera:
 		#TODO: follow
 		#var player_pos:Vector2 = _level_node.get_tree().get_nodes_in_group("player")[0].global_position
 		#new_cam.global_position = player_pos
-	return new_cam
+	
+	player_viewport.player_camera = new_cam
+	player_viewport.sub_viewport = new_sv
+	return player_viewport
 
 func _load_level() -> void:
 	#Load the level - they all need GameLevel attached to their root
 	_level_node = load(_level_to_load).instantiate() as GameLevel
+	# Each subviewport will copy the parallax layer, we want to
+	# disable the main level one.
+	_level_node._parallax_layer.visible = false
 	#The level lives only in the first subviewport
 	_first_subviewport.add_child(_level_node)
 	

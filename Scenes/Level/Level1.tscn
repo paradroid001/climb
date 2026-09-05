@@ -356,13 +356,15 @@ sources/0 = SubResource("TileSetAtlasSource_8ffim")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_03aes"]
 
-[node name="Level1" type="Node2D" unique_id=1878681158 node_paths=PackedStringArray("_level_finish")]
+[node name="Level1" type="Node2D" unique_id=1878681158 node_paths=PackedStringArray("_parallax_layer", "_level_finish")]
 texture_filter = 1
 script = ExtResource("1_q2tg5")
+_parallax_layer = NodePath("Parallax2D")
 powerup_impulse = Vector2(400, 500)
-_level_finish = NodePath("Node2D")
+_level_finish = NodePath("LevelWin")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=714960133]
+process_mode = 4
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D" unique_id=341866560]
@@ -468,5 +470,5 @@ spawn_group = "PowerupSpawn"
 position = Vector2(40, -32)
 spawn_group = "PowerupSpawn"
 
-[node name="Node2D" parent="." unique_id=1776590866 instance=ExtResource("11_q2tg5")]
+[node name="LevelWin" parent="." unique_id=1776590866 instance=ExtResource("11_q2tg5")]
 position = Vector2(3, -1826)
