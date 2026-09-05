@@ -5,7 +5,7 @@ enum LevelState {NOT_STARTED, SETTING_UP, PLAYING, WIN}
 
 signal level_change_state(state: LevelState, old_state: LevelState)
 
-const _powerup_scene = preload("res://Scenes/Actor/powerup.tscn")
+const _powerup_scene = preload("res://Scenes/Actor/Powerup.tscn")
 @export var powerup_impulse: Vector2
 @export var _level_finish: LevelFinish
 var _state: LevelState = LevelState.NOT_STARTED
