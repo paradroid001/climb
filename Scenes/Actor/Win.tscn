@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cnuejwt585wyt"]
+
+[ext_resource type="Script" uid="uid://ctpivjvyyjujn" path="res://Scripts/LevelFinish.gd" id="1_lnvc1"]
+[ext_resource type="SpriteFrames" uid="uid://dc4yyio1fj8sy" path="res://Resources/Sprites/Win.tres" id="1_w3kmw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03aes"]
+size = Vector2(36, 42.485)
+
+[node name="WinCup" type="Node2D" unique_id=1776590866 node_paths=PackedStringArray("_area2d")]
+script = ExtResource("1_lnvc1")
+_area2d = NodePath("AnimatedSprite2D/Area2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1772383345]
+position = Vector2(0, -32.485)
+sprite_frames = ExtResource("1_w3kmw")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1000986716]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1680498824]
+position = Vector2(1, 11.2425)
+shape = SubResource("RectangleShape2D_03aes")

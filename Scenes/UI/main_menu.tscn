@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c78wlo53ophi3" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
 [ext_resource type="PackedScene" uid="uid://cgp3ouhcdsslb" path="res://Scenes/UI/menu_player_config.tscn" id="2_i2xx2"]
-[ext_resource type="Texture2D" uid="uid://cvcqhjurkpiys" path="res://Sprites/PixelAdventure/Other/Confetti (16x16).png" id="3_o14dv"]
-[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scenes/UI/progress_button.gd" id="3_u7lva"]
+[ext_resource type="Texture2D" uid="uid://cvcqhjurkpiys" path="res://Resources/Sprites/PixelAdventure/Other/Confetti (16x16).png" id="3_o14dv"]
+[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/progress_button.gd" id="3_u7lva"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_03aes"]
 font_size = 100

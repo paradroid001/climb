@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://di41w8j7m24c7"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://ds058ncily0sd" path="res://Resources/Physics/powerup_physics_material.tres" id="1_7cpjs"]
+[ext_resource type="SpriteFrames" uid="uid://ctjchgghbd1sx" path="res://Resources/Sprites/Powerup.tres" id="1_84ynv"]
+[ext_resource type="Script" uid="uid://d2gnxb8jecrky" path="res://Scripts/Powerup.gd" id="2_7cpjs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p78v0"]
+radius = 4.125542
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03aes"]
+
+[node name="Powerup" type="RigidBody2D" unique_id=1423320727 node_paths=PackedStringArray("_collision_area", "_sprite")]
+collision_layer = 4
+collision_mask = 2
+physics_material_override = ExtResource("1_7cpjs")
+lock_rotation = true
+script = ExtResource("2_7cpjs")
+_collision_area = NodePath("Area2D")
+_sprite = NodePath("AnimatedSprite2D")
+time_to_enable = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=219509625]
+position = Vector2(0, -5.84)
+sprite_frames = ExtResource("1_84ynv")
+autoplay = "default"
+frame = 3
+frame_progress = 0.04898859
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=243177665]
+position = Vector2(0, -4.55)
+shape = SubResource("CircleShape2D_p78v0")
+debug_color = Color(0.87194496, 0.0004803449, 0.84640783, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=525548708]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1989999481]
+position = Vector2(0, -8.005)
+scale = Vector2(0.895, 0.895)
+shape = SubResource("CircleShape2D_03aes")

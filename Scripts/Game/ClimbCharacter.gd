@@ -7,3 +7,7 @@ class_name ClimbCharacter
 @export var character_name: String
 @export var animation_frames: SpriteFrames
 @export var animation_map: Dictionary
+
+func play_animation(name: String) -> void:
+	if name in animation_map.keys():
+		pass

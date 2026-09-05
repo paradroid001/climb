@@ -10,6 +10,7 @@ class_name MenuPlayerConfig
 @export var _player_sprite: AnimatedSprite2D
 @export var _button_ready: ProgressButton
 @export var _button_cancel: ProgressButton
+@export var _audio: AudioStreamPlayer
 
 signal on_player_ready(player_id: int, character_index: int)
 signal on_player_unready(player_id: int, character_index: int)
@@ -27,13 +28,21 @@ func _ready() -> void:
 	# focus the player panel so navigation has a start point.
 	# TODO: We aren't going to use this in the end, focus is
 	# too hard with multiple controllers in the mix.
-	_player_ready = false
-	_player_panel.grab_focus.call_deferred()
+	
+	#_player_panel.grab_focus.call_deferred()
 	_player_label.text = "Player "
+	_player_ready = false
 	
 	_button_ready.init(_time_to_ready)
 	_button_cancel.init(_time_to_unready)
 	
+	if _connected_player_controls.device_type == IGameInput.ControllerType.GAMEPAD:
+		_button_ready.text = "(B) Ready"
+		_button_cancel.text = "(A) Cancel"
+	elif _connected_player_controls.device_type == IGameInput.ControllerType.KEYBOARD:
+		_button_ready.text = "(Space) Ready"
+		_button_cancel.text = "(Ctrl) Cancel"
+	update_characters() #sync with the available roster
 	# Set the frames to the first entry
 	set_sprite_display(_current_character_index)
 
@@ -42,14 +51,15 @@ func _process(delta: float) -> void:
 	if _connected_player_controls == null:
 		return
 	# Selecting character (left and right)	
-	if !_player_ready and _connected_player_controls.direction.is_released():
+	if !_player_ready and _connected_player_controls.direction.just_released():
 		increment_character(1)
+		_audio.play()
 	
 	# Detecting if player is trying to ready
 	if ! _player_ready:
-		if _connected_player_controls.jump.is_held():
+		if _connected_player_controls.jump.is_pressed():
 			_button_ready.set_value(_connected_player_controls.jump.time_held())
-		if _connected_player_controls.jump.is_released():
+		if _connected_player_controls.jump.just_released():
 			_button_ready.reset()
 			
 		if _button_ready.button_pressed:
@@ -57,9 +67,9 @@ func _process(delta: float) -> void:
 			_player_ready = true
 			on_player_ready.emit(_player_id, _current_character_index)
 	else: #if the player is ready
-		if _connected_player_controls.special.is_held():
+		if _connected_player_controls.special.is_pressed():
 			_button_cancel.set_value(_connected_player_controls.special.time_held())
-		if _connected_player_controls.special.is_released():
+		if _connected_player_controls.special.just_released():
 			_button_cancel.reset()
 			
 		if _button_cancel.button_pressed:

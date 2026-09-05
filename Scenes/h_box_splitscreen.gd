@@ -24,5 +24,6 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	cam1.global_position = player1.global_position
-	cam2.global_position = player2.global_position
+	#cam1.global_position = player1.global_position
+	#cam2.global_position = player2.global_position
+	pass
