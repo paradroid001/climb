@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wkcgjvmge7lq"]
 
-[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/progress_button.gd" id="1_uueka"]
+[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/ProgressButton.gd" id="1_uueka"]
 
 [node name="ProgressButton" type="Button" unique_id=632899459 node_paths=PackedStringArray("_progress", "_button")]
 anchor_right = 1.0

@@ -1,32 +1,32 @@
 [gd_scene format=4 uid="uid://btvqckvtjv8c7"]
 
-[ext_resource type="Script" uid="uid://v63s78q3nlgg" path="res://Scripts/GameLevel.gd" id="1_f58i8"]
-[ext_resource type="Texture2D" uid="uid://bnlqvi2ap5n1b" path="res://Resources/Sprites/PixelAdventure/Background/Blue.png" id="2_7rhct"]
-[ext_resource type="Texture2D" uid="uid://disbd73yp3fj7" path="res://Resources/Sprites/PixelAdventure/Background/Brown.png" id="3_f2ynu"]
-[ext_resource type="Texture2D" uid="uid://dxfdwrpihbooh" path="res://Resources/Sprites/PixelAdventure/Background/Gray.png" id="4_r0nc6"]
-[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Resources/Sprites/PixelAdventure/Background/Green.png" id="5_pn3ef"]
-[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Resources/Sprites/PixelAdventure/Background/Pink.png" id="6_4rc2i"]
-[ext_resource type="Texture2D" uid="uid://dl8gao5gqhixp" path="res://Resources/Sprites/PixelAdventure/Background/Purple.png" id="7_k60cg"]
-[ext_resource type="Texture2D" uid="uid://b554msfm0ue6v" path="res://Resources/Sprites/PixelAdventure/Background/Yellow.png" id="8_5t4gx"]
-[ext_resource type="Texture2D" uid="uid://cmcykfildw85u" path="res://Resources/Sprites/PixelAdventure/Terrain/Terrain (16x16).png" id="9_x7qv6"]
-[ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/spawn_point.tscn" id="10_138tr"]
-[ext_resource type="PackedScene" uid="uid://du7cyiipmfpus" path="res://Scenes/Actor/player.tscn" id="12_f2ynu"]
-[ext_resource type="Resource" uid="uid://b50k00c1fqbyf" path="res://Resources/Characters/CharacterFrog.tres" id="13_4rc2i"]
-[ext_resource type="Script" uid="uid://bgnwh4poicslh" path="res://Scripts/Game/ClimbControl.gd" id="13_pn3ef"]
-[ext_resource type="PackedScene" uid="uid://cjsqdna3cvc5m" path="res://Scenes/Actor/player_camera.tscn" id="13_r0nc6"]
+[ext_resource type="Script" uid="uid://v63s78q3nlgg" path="res://Scripts/GameLevel.gd" id="1_vfuoy"]
+[ext_resource type="Texture2D" uid="uid://bnlqvi2ap5n1b" path="res://Resources/Sprites/PixelAdventure/Background/Blue.png" id="2_4mw16"]
+[ext_resource type="Texture2D" uid="uid://disbd73yp3fj7" path="res://Resources/Sprites/PixelAdventure/Background/Brown.png" id="3_ntu56"]
+[ext_resource type="Texture2D" uid="uid://dxfdwrpihbooh" path="res://Resources/Sprites/PixelAdventure/Background/Gray.png" id="4_hfh17"]
+[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Resources/Sprites/PixelAdventure/Background/Green.png" id="5_1d8kr"]
+[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Resources/Sprites/PixelAdventure/Background/Pink.png" id="6_tfwaw"]
+[ext_resource type="Texture2D" uid="uid://dl8gao5gqhixp" path="res://Resources/Sprites/PixelAdventure/Background/Purple.png" id="7_jseev"]
+[ext_resource type="Texture2D" uid="uid://b554msfm0ue6v" path="res://Resources/Sprites/PixelAdventure/Background/Yellow.png" id="8_0fsb5"]
+[ext_resource type="Texture2D" uid="uid://cmcykfildw85u" path="res://Resources/Sprites/PixelAdventure/Terrain/Terrain (16x16).png" id="9_rrq57"]
+[ext_resource type="PackedScene" uid="uid://du7cyiipmfpus" path="res://Scenes/Actor/Player.tscn" id="10_r602q"]
+[ext_resource type="Resource" uid="uid://b50k00c1fqbyf" path="res://Resources/Characters/CharacterFrog.tres" id="11_n76j7"]
+[ext_resource type="PackedScene" uid="uid://cjsqdna3cvc5m" path="res://Scenes/Actor/PlayerCamera.tscn" id="12_pyhho"]
+[ext_resource type="Script" uid="uid://bgnwh4poicslh" path="res://Scripts/Game/ClimbControl.gd" id="13_nc0vw"]
+[ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/SpawnPoint.tscn" id="14_uu752"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oovug"]
-texture = ExtResource("2_7rhct")
+texture = ExtResource("2_4mw16")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i23i"]
-texture = ExtResource("3_f2ynu")
+texture = ExtResource("3_ntu56")
 0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yhm2"]
-texture = ExtResource("4_r0nc6")
+texture = ExtResource("4_hfh17")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -45,7 +45,7 @@ texture = ExtResource("4_r0nc6")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjppf"]
-texture = ExtResource("5_pn3ef")
+texture = ExtResource("5_1d8kr")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -64,7 +64,7 @@ texture = ExtResource("5_pn3ef")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yltlr"]
-texture = ExtResource("6_4rc2i")
+texture = ExtResource("6_tfwaw")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -83,7 +83,7 @@ texture = ExtResource("6_4rc2i")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ssoq"]
-texture = ExtResource("7_k60cg")
+texture = ExtResource("7_jseev")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -102,7 +102,7 @@ texture = ExtResource("7_k60cg")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imks0"]
-texture = ExtResource("8_5t4gx")
+texture = ExtResource("8_0fsb5")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -131,7 +131,7 @@ sources/5 = SubResource("TileSetAtlasSource_6ssoq")
 sources/6 = SubResource("TileSetAtlasSource_imks0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffim"]
-texture = ExtResource("9_x7qv6")
+texture = ExtResource("9_rrq57")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -361,7 +361,7 @@ sources/0 = SubResource("TileSetAtlasSource_8ffim")
 
 [node name="TestLevel" type="Node2D" unique_id=1878681158]
 texture_filter = 1
-script = ExtResource("1_f58i8")
+script = ExtResource("1_vfuoy")
 powerup_impulse = Vector2(400, 500)
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=714960133]
@@ -384,65 +384,65 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=326366100]
 shape = SubResource("WorldBoundaryShape2D_03aes")
 
-[node name="Player" parent="." unique_id=64146397 node_paths=PackedStringArray("_player_controls") instance=ExtResource("12_f2ynu")]
+[node name="Player" parent="." unique_id=64146397 node_paths=PackedStringArray("_player_controls") instance=ExtResource("10_r602q")]
 position = Vector2(-95, -59)
-_player_character = ExtResource("13_4rc2i")
+_player_character = ExtResource("11_n76j7")
 _player_controls = NodePath("../ClimbControl")
 
-[node name="Player2" parent="." unique_id=1442827219 instance=ExtResource("12_f2ynu")]
+[node name="Player2" parent="." unique_id=1442827219 instance=ExtResource("10_r602q")]
 position = Vector2(74, -63)
-_player_character = ExtResource("13_4rc2i")
+_player_character = ExtResource("11_n76j7")
 
-[node name="PlayerCamera" parent="." unique_id=1024957243 node_paths=PackedStringArray("_player_target") instance=ExtResource("13_r0nc6")]
+[node name="PlayerCamera" parent="." unique_id=1024957243 node_paths=PackedStringArray("_player_target") instance=ExtResource("12_pyhho")]
 position = Vector2(-62, -72)
 zoom = Vector2(2, 2)
 _player_target = NodePath("../Player")
 
 [node name="ClimbControl" type="Node" parent="." unique_id=1567913514]
-script = ExtResource("13_pn3ef")
+script = ExtResource("13_nc0vw")
 device_id = 99
 device_type = 2
 metadata/_custom_type_script = "uid://bgnwh4poicslh"
 
 [node name="PlayerSpawns" type="Node" parent="." unique_id=1417690019]
 
-[node name="SpawnPoint" parent="PlayerSpawns" unique_id=2124746330 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint" parent="PlayerSpawns" unique_id=2124746330 instance=ExtResource("14_uu752")]
 position = Vector2(80, -74)
 
-[node name="SpawnPoint2" parent="PlayerSpawns" unique_id=1721379205 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint2" parent="PlayerSpawns" unique_id=1721379205 instance=ExtResource("14_uu752")]
 position = Vector2(-87, -74)
 
-[node name="SpawnPoint3" parent="PlayerSpawns" unique_id=1685063106 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint3" parent="PlayerSpawns" unique_id=1685063106 instance=ExtResource("14_uu752")]
 position = Vector2(0, -25)
 
 [node name="PowerupSpawns" type="Node" parent="." unique_id=194732174]
 
-[node name="SpawnPoint" parent="PowerupSpawns" unique_id=1080069710 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint" parent="PowerupSpawns" unique_id=1080069710 instance=ExtResource("14_uu752")]
 position = Vector2(-36, -122)
 reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint2" parent="PowerupSpawns" unique_id=1066390909 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint2" parent="PowerupSpawns" unique_id=1066390909 instance=ExtResource("14_uu752")]
 position = Vector2(32, -123)
 reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint3" parent="PowerupSpawns" unique_id=1515524323 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint3" parent="PowerupSpawns" unique_id=1515524323 instance=ExtResource("14_uu752")]
 position = Vector2(115, -169)
 reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint4" parent="PowerupSpawns" unique_id=1166502535 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint4" parent="PowerupSpawns" unique_id=1166502535 instance=ExtResource("14_uu752")]
 position = Vector2(188, -170)
 reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint5" parent="PowerupSpawns" unique_id=620965368 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint5" parent="PowerupSpawns" unique_id=620965368 instance=ExtResource("14_uu752")]
 position = Vector2(-184, -176)
 reusable = true
 spawn_group = "PowerupSpawn"
 
-[node name="SpawnPoint6" parent="PowerupSpawns" unique_id=1660591918 instance=ExtResource("10_138tr")]
+[node name="SpawnPoint6" parent="PowerupSpawns" unique_id=1660591918 instance=ExtResource("14_uu752")]
 position = Vector2(-123, -177)
 reusable = true
 spawn_group = "PowerupSpawn"

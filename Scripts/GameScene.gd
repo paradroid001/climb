@@ -1,14 +1,14 @@
 extends Node
 
-const player_camera_scene = preload("res://Scenes/Actor/player_camera.tscn")
-const player_scene = preload("res://Scenes/Actor/player.tscn")
+const player_camera_scene = preload("res://Scenes/Actor/PlayerCamera.tscn")
+const player_scene = preload("res://Scenes/Actor/Player.tscn")
 
 @export var screen_container: HBoxContainer
 @export var _cam_zoom: Vector2 = Vector2.ONE
 @export var _game_start_ui: GameStartUI
 @export var _game_win_ui: GameWinUI
 
-var _level_to_load: String = "res://Scenes/Level/level_1.tscn"
+var _level_to_load: String = "res://Scenes/Level/Level1.tscn"
 var _first_subviewport : SubViewport = null
 # This is the actual loaded game level
 var _level_node: GameLevel = null

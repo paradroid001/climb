@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://cgp3ouhcdsslb"]
+[gd_scene format=3 uid="uid://b6kju2mbk4d88"]
 
-[ext_resource type="Script" uid="uid://csdns0dul8o6h" path="res://Scripts/UI/menu_player_config.gd" id="1_0wkjo"]
-[ext_resource type="SpriteFrames" uid="uid://bmmcjqte61no4" path="res://Resources/Sprites/Mask.tres" id="2_55io2"]
-[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/progress_button.gd" id="2_dc4xe"]
-[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Resources/Sprites/PixelAdventure/Background/Green.png" id="4_iaf7r"]
-[ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Resources/UI/climb_ui_theme.tres" id="5_dc4xe"]
-[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Resources/Sprites/PixelAdventure/Background/Pink.png" id="6_rqetb"]
-[ext_resource type="AudioStream" uid="uid://dqw2j100cp256" path="res://Resources/Audio/character_change.wav" id="7_gsepg"]
+[ext_resource type="Script" uid="uid://csdns0dul8o6h" path="res://Scripts/UI/MenuPlayerConfig.gd" id="1_jdtf2"]
+[ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Resources/UI/climb_ui_theme.tres" id="2_a6u8b"]
+[ext_resource type="SpriteFrames" uid="uid://bmmcjqte61no4" path="res://Resources/Sprites/Mask.tres" id="3_7qwky"]
+[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/ProgressButton.gd" id="4_uueb7"]
+[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Resources/Sprites/PixelAdventure/Background/Green.png" id="5_rcedl"]
+[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Resources/Sprites/PixelAdventure/Background/Pink.png" id="6_6vob2"]
+[ext_resource type="AudioStream" uid="uid://dqw2j100cp256" path="res://Resources/Audio/character_change.wav" id="7_mdsjm"]
 
-[node name="Control" type="Control" unique_id=1002004723 node_paths=PackedStringArray("_player_label", "_player_panel", "_player_sprite", "_button_ready", "_button_cancel", "_audio")]
+[node name="MenuPlayerConfig" type="Control" unique_id=1002004723 node_paths=PackedStringArray("_player_label", "_player_panel", "_player_sprite", "_button_ready", "_button_cancel", "_audio")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 3
 anchors_preset = 13
@@ -18,7 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-script = ExtResource("1_0wkjo")
+script = ExtResource("1_jdtf2")
 _player_label = NodePath("Panel/VBoxContainer/Label")
 _player_panel = NodePath("Panel/VBoxContainer/Panel_Character")
 _player_sprite = NodePath("Panel/VBoxContainer/Panel_Character/ColorRect/AnimatedSprite2D")
@@ -56,7 +56,7 @@ size_flags_vertical = 6
 size_flags_stretch_ratio = 3.0
 focus_neighbor_bottom = NodePath("../Button_Ready")
 focus_mode = 2
-theme = ExtResource("5_dc4xe")
+theme = ExtResource("2_a6u8b")
 
 [node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer/Panel_Character" unique_id=254881163]
 custom_minimum_size = Vector2(0, 200)
@@ -74,7 +74,7 @@ grow_vertical = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/VBoxContainer/Panel_Character/ColorRect" unique_id=545423546]
 position = Vector2(16.000023, 38.99997)
 scale = Vector2(3.679995, 3.679995)
-sprite_frames = ExtResource("2_55io2")
+sprite_frames = ExtResource("3_7qwky")
 autoplay = "default"
 centered = false
 
@@ -85,9 +85,9 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Panel_Character")
 focus_neighbor_bottom = NodePath("../Button_Cancel")
-theme = ExtResource("5_dc4xe")
+theme = ExtResource("2_a6u8b")
 toggle_mode = true
-script = ExtResource("2_dc4xe")
+script = ExtResource("4_uueb7")
 _progress = NodePath("TextureProgressBar")
 _button = NodePath(".")
 
@@ -99,7 +99,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_progress = ExtResource("4_iaf7r")
+texture_progress = ExtResource("5_rcedl")
 tint_progress = Color(1, 1, 1, 0.39215687)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Button_Ready" unique_id=1458878872]
@@ -122,9 +122,9 @@ propagate_maximum_size = true
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Button_Ready")
-theme = ExtResource("5_dc4xe")
+theme = ExtResource("2_a6u8b")
 toggle_mode = true
-script = ExtResource("2_dc4xe")
+script = ExtResource("4_uueb7")
 _progress = NodePath("TextureProgressBar")
 _button = NodePath(".")
 
@@ -136,7 +136,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_progress = ExtResource("6_rqetb")
+texture_progress = ExtResource("6_6vob2")
 tint_progress = Color(1, 1, 1, 0.39215687)
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Button_Cancel" unique_id=703982373]
@@ -154,4 +154,4 @@ text = "(B): Cancel"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1044933359]
-stream = ExtResource("7_gsepg")
+stream = ExtResource("7_mdsjm")

@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://4wro1a7hvqie"]
+[gd_scene format=3 uid="uid://bcos6q2al1wqv"]
 
-[ext_resource type="Script" uid="uid://c78wlo53ophi3" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
-[ext_resource type="PackedScene" uid="uid://cgp3ouhcdsslb" path="res://Scenes/UI/menu_player_config.tscn" id="2_i2xx2"]
-[ext_resource type="Texture2D" uid="uid://cvcqhjurkpiys" path="res://Resources/Sprites/PixelAdventure/Other/Confetti (16x16).png" id="3_o14dv"]
-[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/progress_button.gd" id="3_u7lva"]
+[ext_resource type="Script" uid="uid://cqda1c1a3o5wk" path="res://Scripts/UI/MainMenu.gd" id="1_t6w0q"]
+[ext_resource type="PackedScene" uid="uid://b6kju2mbk4d88" path="res://Scenes/UI/MenuPlayerConfig.tscn" id="2_t6w0q"]
+[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/ProgressButton.gd" id="3_jex3y"]
+[ext_resource type="Texture2D" uid="uid://cvcqhjurkpiys" path="res://Resources/Sprites/PixelAdventure/Other/Confetti (16x16).png" id="4_744d7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_03aes"]
 font_size = 100
@@ -15,9 +15,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5wsvm")
+script = ExtResource("1_t6w0q")
 hbox = NodePath("Panel/Panel Character/HBoxContainer")
-player_config_prefab = ExtResource("2_i2xx2")
+player_config_prefab = ExtResource("2_t6w0q")
 _button_start_game = NodePath("Panel/Panel Game Settings/GridContainer/Button_Start")
 
 [node name="Panel" type="Panel" parent="." unique_id=2114637550]
@@ -27,6 +27,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Version Label" type="Label" parent="Panel" unique_id=387749173]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Panel" unique_id=1176898215]
 layout_mode = 1
@@ -96,7 +105,7 @@ layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 3
 text = "Start!"
-script = ExtResource("3_u7lva")
+script = ExtResource("3_jex3y")
 _progress = NodePath("TextureProgressBar")
 _button = NodePath(".")
 
@@ -108,4 +117,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
-texture_progress = ExtResource("3_o14dv")
+texture_progress = ExtResource("4_744d7")

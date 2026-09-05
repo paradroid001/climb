@@ -11,9 +11,9 @@
 script = ExtResource("2_w0hw1")
 characters = Array[ExtResource("1_gq3im")]([ExtResource("2_n77a4"), ExtResource("3_57mmc"), ExtResource("4_om2op"), ExtResource("5_57mmc")])
 scene_paths = Dictionary[String, String]({
-"Game": "res://Scenes/game_scene.tscn",
+"Game": "res://Scenes/GameScene.tscn",
 "LoadingScreen": "res://Scenes/UI/LoadingScreen.tscn",
-"Menu": "res://Scenes/UI/main_menu.tscn",
+"Menu": "res://Scenes/UI/MainMenu.tscn",
 "Title": ""
 })
 metadata/_custom_type_script = "uid://bg33ypedrc08m"

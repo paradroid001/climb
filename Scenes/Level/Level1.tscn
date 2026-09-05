@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Resources/Sprites/PixelAdventure/Background/Pink.png" id="6_uy8f0"]
 [ext_resource type="Texture2D" uid="uid://dl8gao5gqhixp" path="res://Resources/Sprites/PixelAdventure/Background/Purple.png" id="7_6r07y"]
 [ext_resource type="Texture2D" uid="uid://b554msfm0ue6v" path="res://Resources/Sprites/PixelAdventure/Background/Yellow.png" id="8_6ioyp"]
-[ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/spawn_point.tscn" id="10_d68a7"]
+[ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/SpawnPoint.tscn" id="10_d68a7"]
 [ext_resource type="PackedScene" uid="uid://cnuejwt585wyt" path="res://Scenes/Actor/Win.tscn" id="11_q2tg5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oovug"]

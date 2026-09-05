@@ -1,6 +1,10 @@
 extends Node
 
 const ON_COLLISION_SIGNAL: StringName = "body_entered"
+const VERSION_MAJOR: int = 0
+const VERSION_MINOR: int = 5
+const VERSION_BRANCH: String = "develop"
+const OVERLAY_TEXT: String = "Alpha Gameplay, Test GFX"
 
 # not using class name because this is an autoload script, I want
 # to be able to call it something else.
@@ -63,6 +67,9 @@ func _process(delta: float) -> void:
 				get_tree().change_scene_to_packed(_loaded_scene)
 				_game_state = ClimbGameState.PLAYING
 				load_scene_finished.emit()
+
+func get_overlay_text() -> String:
+	return str(VERSION_MAJOR) + "." + str(VERSION_MINOR) + "_" + str(VERSION_BRANCH) + " " + OVERLAY_TEXT
 
 func load_scene(scene_name: String) -> bool:
 	if _game_state == ClimbGameState.LOADING:
