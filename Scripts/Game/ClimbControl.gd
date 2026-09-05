@@ -61,7 +61,8 @@ func _init(id: int = 99, type: IGameInput.ControllerType = IGameInput.Controller
 		
 		var dir_joypad = GameInput2D.new(type, device_id)
 		dir_joypad.add_axis_actions(GameInput2D.Input2DType.HORIZONTAL, action_joypad_left, action_joypad_right)
-		dir_joypad.add_axis_actions(GameInput2D.Input2DType.VERTICAL, action_joypad_down, action_joypad_up)
+		# Godot uses -1 as up and +1 as down, so map accordingly
+		dir_joypad.add_axis_actions(GameInput2D.Input2DType.VERTICAL, action_joypad_up, action_joypad_down)
 		
 		direction.add_input(dir_joypad)
 		
@@ -84,7 +85,8 @@ func _init(id: int = 99, type: IGameInput.ControllerType = IGameInput.Controller
 		
 		var dir: GameInput2D = GameInput2D.new(type, 99)
 		dir.add_axis_actions(GameInput2D.Input2DType.HORIZONTAL, dir_action_left, dir_action_right)
-		dir.add_axis_actions(GameInput2D.Input2DType.VERTICAL, dir_action_down, dir_action_up)
+		# Godot uses -1 as up and +1 as down, so map accordingly
+		dir.add_axis_actions(GameInput2D.Input2DType.VERTICAL, dir_action_up, dir_action_down)
 		
 		direction.add_input(dir)
 		

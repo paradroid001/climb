@@ -366,6 +366,7 @@ _level_finish = NodePath("LevelWin")
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=714960133]
 process_mode = 4
 scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(75, -1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D" unique_id=341866560]
 z_index = -1
@@ -385,16 +386,28 @@ shape = SubResource("WorldBoundaryShape2D_03aes")
 [node name="PlayerSpawnPoints" type="Node" parent="." unique_id=151430352]
 
 [node name="SpawnPoint" parent="PlayerSpawnPoints" unique_id=2124746330 instance=ExtResource("10_d68a7")]
-position = Vector2(232, 30)
+position = Vector2(218, 29)
 
 [node name="SpawnPoint2" parent="PlayerSpawnPoints" unique_id=1721379205 instance=ExtResource("10_d68a7")]
-position = Vector2(-219, 29)
+position = Vector2(-233, 28)
 
 [node name="SpawnPoint3" parent="PlayerSpawnPoints" unique_id=1685063106 instance=ExtResource("10_d68a7")]
-position = Vector2(-65, 27)
+position = Vector2(-79, 26)
 
 [node name="SpawnPoint4" parent="PlayerSpawnPoints" unique_id=816661549 instance=ExtResource("10_d68a7")]
-position = Vector2(93, 28)
+position = Vector2(79, 27)
+
+[node name="SpawnPoint5" parent="PlayerSpawnPoints" unique_id=345796480 instance=ExtResource("10_d68a7")]
+position = Vector2(272, 30)
+
+[node name="SpawnPoint6" parent="PlayerSpawnPoints" unique_id=1165217522 instance=ExtResource("10_d68a7")]
+position = Vector2(-179, 29)
+
+[node name="SpawnPoint7" parent="PlayerSpawnPoints" unique_id=1059792413 instance=ExtResource("10_d68a7")]
+position = Vector2(-25, 27)
+
+[node name="SpawnPoint8" parent="PlayerSpawnPoints" unique_id=381623881 instance=ExtResource("10_d68a7")]
+position = Vector2(133, 28)
 
 [node name="PowerupSpawnPoints" type="Node" parent="." unique_id=887116967]
 
