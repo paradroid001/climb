@@ -7,6 +7,7 @@ enum PowerupState {DISABLED, ENABLED}
 # The area that players collide with
 @export var _collision_area: Area2D
 @export var _sprite: AnimatedSprite2D
+
 # Time from when this powerup is created to when it can be collected
 # Set this in the inspector, or before the poweup enters the tree
 # Set to 0 to have it be collectible immediately

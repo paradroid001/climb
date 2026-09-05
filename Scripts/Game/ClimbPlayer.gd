@@ -27,3 +27,7 @@ func _process(delta: float) -> void:
 
 func set_state(new_state: ClimbPlayerState) -> void:
 	pass
+func get_controls() -> ClimbControl:
+	return _control
+func get_character() -> ClimbCharacter:
+	return _character

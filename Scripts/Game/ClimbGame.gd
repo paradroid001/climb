@@ -96,6 +96,9 @@ func reset() -> void:
 	print("ClimbGame Resetting")
 	_gamepad_info.clear()
 	_device_to_player_index.clear()
+	# Empty players
+	while _players.size() > 0:
+		_players.pop_back()
 	# Fill players with null
 	for id in range(_settings.MAX_PLAYERS):
 		_players.push_back(null)
@@ -157,7 +160,15 @@ func player_leave(index: int) -> void:
 func get_character_roster() -> Array[ClimbCharacter]:
 	return _characters
 
-func get_climb_player(id: int) -> ClimbPlayer:
+# Returns an array of the active players
+func get_players() -> Array[ClimbPlayer]:
+	var players: Array[ClimbPlayer] = []
+	for p in _players:
+		if p != null:
+			players.push_back(p)
+	return players
+
+func get_player(id: int) -> ClimbPlayer:
 	if id < _players.size():
 		return _players[id]
 	return null

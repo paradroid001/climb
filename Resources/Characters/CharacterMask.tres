@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ClimbCharacter" format=3 uid="uid://du63tfo3r2wdm"]
 
-[ext_resource type="SpriteFrames" uid="uid://bmmcjqte61no4" path="res://Sprites/SpriteFrames/Mask.tres" id="1_4r41i"]
+[ext_resource type="SpriteFrames" uid="uid://bmmcjqte61no4" path="res://Resources/Sprites/Mask.tres" id="1_4r41i"]
 [ext_resource type="Script" uid="uid://c1wpwvu0uvg4r" path="res://Scripts/Game/ClimbCharacter.gd" id="2_xb6o1"]
 
 [resource]

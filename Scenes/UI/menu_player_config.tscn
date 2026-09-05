@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cgp3ouhcdsslb"]
 
 [ext_resource type="Script" uid="uid://csdns0dul8o6h" path="res://Scripts/UI/menu_player_config.gd" id="1_0wkjo"]
-[ext_resource type="SpriteFrames" uid="uid://bmmcjqte61no4" path="res://Sprites/SpriteFrames/Mask.tres" id="2_55io2"]
-[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scenes/UI/progress_button.gd" id="2_dc4xe"]
-[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Sprites/PixelAdventure/Background/Green.png" id="4_iaf7r"]
-[ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Scenes/UI/climb_ui_theme.tres" id="5_dc4xe"]
-[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Sprites/PixelAdventure/Background/Pink.png" id="6_rqetb"]
+[ext_resource type="SpriteFrames" uid="uid://bmmcjqte61no4" path="res://Resources/Sprites/Mask.tres" id="2_55io2"]
+[ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/progress_button.gd" id="2_dc4xe"]
+[ext_resource type="Texture2D" uid="uid://cdeelmkrcdeml" path="res://Resources/Sprites/PixelAdventure/Background/Green.png" id="4_iaf7r"]
+[ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Resources/UI/climb_ui_theme.tres" id="5_dc4xe"]
+[ext_resource type="Texture2D" uid="uid://7a4almta6qu0" path="res://Resources/Sprites/PixelAdventure/Background/Pink.png" id="6_rqetb"]
+[ext_resource type="AudioStream" uid="uid://dqw2j100cp256" path="res://Resources/Audio/character_change.wav" id="7_gsepg"]
 
-[node name="Control" type="Control" unique_id=1002004723 node_paths=PackedStringArray("_player_label", "_player_panel", "_player_sprite", "_button_ready", "_button_cancel")]
+[node name="Control" type="Control" unique_id=1002004723 node_paths=PackedStringArray("_player_label", "_player_panel", "_player_sprite", "_button_ready", "_button_cancel", "_audio")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 3
 anchors_preset = 13
@@ -23,6 +24,7 @@ _player_panel = NodePath("Panel/VBoxContainer/Panel_Character")
 _player_sprite = NodePath("Panel/VBoxContainer/Panel_Character/ColorRect/AnimatedSprite2D")
 _button_ready = NodePath("Panel/VBoxContainer/Button_Ready")
 _button_cancel = NodePath("Panel/VBoxContainer/Button_Cancel")
+_audio = NodePath("AudioStreamPlayer")
 
 [node name="Panel" type="Panel" parent="." unique_id=683513826]
 layout_mode = 1
@@ -150,3 +152,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "(B): Cancel"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1044933359]
+stream = ExtResource("7_gsepg")

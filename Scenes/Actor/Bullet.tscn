@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://qdmxb0g68eua"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cjc04gvdd6toa" path="res://Resources/Physics/bullet_physics_material.tres" id="1_5jatx"]
+[ext_resource type="Script" uid="uid://dxwjqtbopms7e" path="res://Scripts/Bullet.gd" id="2_16n70"]
+[ext_resource type="Texture2D" uid="uid://i0gjyfshmprp" path="res://Resources/Sprites/PixelAdventure/Other/Dust Particle.png" id="3_hptjk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6j7s"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03aes"]
+
+[sub_resource type="Curve" id="Curve_hptjk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5954198, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_16n70"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=854791500 node_paths=PackedStringArray("_sprite", "_area2d")]
+z_index = 2
+collision_layer = 10
+collision_mask = 2
+mass = 0.2
+physics_material_override = ExtResource("1_5jatx")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_16n70")
+_sprite = NodePath("AnimatedSprite2D")
+_area2d = NodePath("Area2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1031471549]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=996159415]
+shape = SubResource("CircleShape2D_q6j7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1121570620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=832547014]
+shape = SubResource("CircleShape2D_03aes")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=563860180]
+amount = 300
+texture = ExtResource("3_hptjk")
+lifetime = 2.0
+emission_shape = 1
+emission_sphere_radius = 7.49
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_hptjk")
+color_ramp = SubResource("Gradient_16n70")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnuejwt585wyt"]
 
 [ext_resource type="Script" uid="uid://ctpivjvyyjujn" path="res://Scripts/LevelFinish.gd" id="1_lnvc1"]
-[ext_resource type="SpriteFrames" uid="uid://dc4yyio1fj8sy" path="res://Sprites/SpriteFrames/Win.tres" id="1_w3kmw"]
+[ext_resource type="SpriteFrames" uid="uid://dc4yyio1fj8sy" path="res://Resources/Sprites/Win.tres" id="1_w3kmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03aes"]
 size = Vector2(36, 42.485)

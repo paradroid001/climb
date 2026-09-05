@@ -22,7 +22,7 @@ func _ready() -> void:
 		_available_roster[index] = true #available
 		index +=1
 		print("Adding available character " + character.character_name)
-	
+	ClimbGameManager.reset()
 	# Init the start button to a 5 second countdown with a 1 second step
 	_button_start_game.init(5, 1)
 	

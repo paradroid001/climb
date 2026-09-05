@@ -5,15 +5,18 @@ const player_scene = preload("res://Scenes/Actor/player.tscn")
 
 @export var screen_container: HBoxContainer
 @export var _cam_zoom: Vector2 = Vector2.ONE
+@export var _game_start_ui: GameStartUI
+@export var _game_win_ui: GameWinUI
+
 var _level_to_load: String = "res://Scenes/Level/level_1.tscn"
 var _first_subviewport : SubViewport = null
+# This is the actual loaded game level
 var _level_node: GameLevel = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# If we resize the game, resize the viewports
 	get_tree().root.size_changed.connect(_update_viewport_size)
-	
 	var added_players: int = 0
 	
 	for player in ClimbGameManager._players:
@@ -34,14 +37,32 @@ func _ready() -> void:
 				
 			new_player.global_position = _level_node.get_random_spawn_point(SpawnPoint.PLAYER_SPAWN_GROUP).assign()
 			_level_node.add_child(new_player)
+			new_player.set_level(_level_node)
 			player_camera.set_target(new_player)
 				
 			added_players += 1
 	_update_viewport_size()
+	# at this point all players are added.
+	# show the start game UI, and start the countdown.
+	_game_start_ui.connect("game_start_countdown_timeout", _on_game_start_countdown_finished)
+	_game_start_ui.countdown(3)
+	_level_node.connect("level_change_state", _on_level_change_state)
+	_level_node.set_state(GameLevel.LevelState.SETTING_UP)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _on_game_start_countdown_finished() -> void:
+	print("Game Start!")
+	_level_node.set_state(GameLevel.LevelState.PLAYING)
+
+# We get this when the level signals there is a winner.
+func _on_level_change_state(state: GameLevel.LevelState, old_state: GameLevel.LevelState) -> void:
+	if state == GameLevel.LevelState.WIN:
+		print("Game recieved signal that level entered WIN state")
+		_game_win_ui.enable(true)
+	
 
 func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerCamera:
 	var new_svc: SubViewportContainer = SubViewportContainer.new()

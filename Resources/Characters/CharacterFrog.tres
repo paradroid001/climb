@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ClimbCharacter" format=3 uid="uid://b50k00c1fqbyf"]
 
-[ext_resource type="SpriteFrames" uid="uid://cnxhyic54exry" path="res://Sprites/SpriteFrames/Frog.tres" id="1_8l6x2"]
+[ext_resource type="SpriteFrames" uid="uid://cnxhyic54exry" path="res://Resources/Sprites/Frog.tres" id="1_8l6x2"]
 [ext_resource type="Script" uid="uid://c1wpwvu0uvg4r" path="res://Scripts/Game/ClimbCharacter.gd" id="2_qguql"]
 
 [resource]

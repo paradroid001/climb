@@ -10,6 +10,7 @@ class_name MenuPlayerConfig
 @export var _player_sprite: AnimatedSprite2D
 @export var _button_ready: ProgressButton
 @export var _button_cancel: ProgressButton
+@export var _audio: AudioStreamPlayer
 
 signal on_player_ready(player_id: int, character_index: int)
 signal on_player_unready(player_id: int, character_index: int)
@@ -52,6 +53,7 @@ func _process(delta: float) -> void:
 	# Selecting character (left and right)	
 	if !_player_ready and _connected_player_controls.direction.just_released():
 		increment_character(1)
+		_audio.play()
 	
 	# Detecting if player is trying to ready
 	if ! _player_ready:
