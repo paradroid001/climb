@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ClimbCharacter" format=3 uid="uid://d2jqkortq5w0l"]
+
+[ext_resource type="SpriteFrames" uid="uid://dobsi64stoqe8" path="res://Resources/Sprites/Karak.tres" id="1_egufk"]
+[ext_resource type="Script" uid="uid://c1wpwvu0uvg4r" path="res://Scripts/Game/ClimbCharacter.gd" id="2_o0uj6"]
+
+[resource]
+script = ExtResource("2_o0uj6")
+character_name = "Karak"
+animation_frames = ExtResource("1_egufk")
+metadata/_custom_type_script = "uid://c1wpwvu0uvg4r"

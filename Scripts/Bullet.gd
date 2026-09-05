@@ -13,7 +13,7 @@ var _direction: Vector2
 func _ready() -> void:
 	connect(ClimbGameManager.ON_COLLISION_SIGNAL, rb2d_on_body_enter)
 	_area2d.connect(ClimbGameManager.ON_COLLISION_SIGNAL, area2d_on_body_enter)
-	apply_impulse(_direction * 1000)
+	apply_impulse(_direction * 500)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -30,7 +30,9 @@ func rb2d_on_body_enter(body: Node2D) -> void:
 	print("Bullet hit solid something")
 	_bounces -= 1
 	if _bounces == 0:
-		print("Bullet was destroyed, we lost a powerup")
+		#print("Bullet was destroyed, we lost a powerup")
+		# spawn a powerup in the level where we are.
+		_owner_level.spawn_powerup(global_position)
 		queue_free()
 
 func area2d_on_body_enter(body: Node2D) -> void:

@@ -6,6 +6,8 @@ enum LevelState {NOT_STARTED, SETTING_UP, PLAYING, WIN}
 signal level_change_state(state: LevelState, old_state: LevelState)
 
 const _powerup_scene = preload("res://Scenes/Actor/Powerup.tscn")
+
+@export var _parallax_layer: Parallax2D
 @export var powerup_impulse: Vector2
 @export var _level_finish: LevelFinish
 var _state: LevelState = LevelState.NOT_STARTED
@@ -35,6 +37,9 @@ func _ready() -> void:
 	var entire_tree_nodes: Array[Node] = get_tree().root.find_children("*", "PlayerMovement", true, false)
 	for item in entire_tree_nodes:
 		on_child_enter_tree(item)
+		
+	# disable the parallax background - each subviewport will duplicate this themselves.
+	_parallax_layer.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

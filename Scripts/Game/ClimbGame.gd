@@ -2,7 +2,7 @@ extends Node
 
 const ON_COLLISION_SIGNAL: StringName = "body_entered"
 const VERSION_MAJOR: int = 0
-const VERSION_MINOR: int = 5
+const VERSION_MINOR: int = 6
 const VERSION_BRANCH: String = "develop"
 const OVERLAY_TEXT: String = "Alpha Gameplay, Test GFX"
 

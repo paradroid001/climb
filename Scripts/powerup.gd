@@ -69,9 +69,11 @@ func _on_area2d_body_entered(body):
 	if body is PlayerMovement:
 		#It should be a playermovement script
 		var pm: PlayerMovement = body
-		pm.gain_powerups(1)
-		#delete this object
-		queue_free()
+		var changed: bool = pm.gain_powerups(1)
+		# If we actually were absorbed by the player, delete ourselves
+		if changed:
+			#delete this object
+			queue_free()
 	else:
 		# Something else collided that wasn't a player
 		#print("SOmething else collided: " + body.name)

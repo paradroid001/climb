@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name PlayerMovement
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED: float = 300.0
+const JUMP_VELOCITY: float = -400.0
+const MAX_FLOCK_SIZE: int = 8
 
 # Emitted whenever we collide with another player
 signal collided_with_player(me: PlayerMovement, them: PlayerMovement)
@@ -23,7 +24,7 @@ var _player_sfx: AudioStreamPlaybackPolyphonic
 @export var _eject_point: Node2D
 @export var _max_flock_positions: int = 100
 @export var _flock_sample_rate:float = 0.01
-@export var _flock_scale: float = 0.6
+@export var _flock_scale: float = 0.7
 var _flock_spacing_timer: float
 var _player_id: int = 0
 #did the player start pressing jump this frame?
@@ -57,7 +58,10 @@ func _process(delta: float) -> void:
 			_jump_input += delta
 			#print("just pressed")
 		if _player_controls.special.just_released():
-			_shoot(Vector2.UP)
+			var shoot_direction: Vector2 = _player_controls.direction.vector2()
+			if shoot_direction.length() < 0.01: #basically if no input
+				shoot_direction = Vector2.UP
+			_shoot(shoot_direction)
 	
 	_flock_spacing_timer += delta
 	if _flock_spacing_timer > _flock_sample_rate:
@@ -128,12 +132,22 @@ func _remove_flock_member() -> void:
 	flock_member.queue_free()
 	
 # Use this to gain or lose powerups
-func gain_powerups(num: int) -> int:
+# Returns true if the number of powerups changed
+func gain_powerups(num: int) -> bool:
+	var _initial_powerups_collected: int = _powerups_collected
+	
 	_powerups_collected += num
 	if _powerups_collected < 0:
 		_powerups_collected = 0
+	elif _powerups_collected > MAX_FLOCK_SIZE:
+		_powerups_collected = MAX_FLOCK_SIZE
 	_jumps_max = _powerups_collected + 1
 	
+	# after all that, if they nothing happened return false
+	if _initial_powerups_collected == _powerups_collected:
+		return false
+	
+	# otherwise process the addition		
 	for i in range(abs(num)):
 		if num > 0:
 			_add_flock_member()
@@ -141,7 +155,7 @@ func gain_powerups(num: int) -> int:
 		elif _flock.size() > 0:
 			_remove_flock_member()
 	
-	return _powerups_collected
+	return true
 
 func reset_jumps() -> void:
 	_jumps_used = 0
@@ -166,6 +180,7 @@ func _shoot(direction: Vector2) -> void:
 		bullet.init_bullet(direction, ClimbGameManager.get_player(_player_id), _current_level)
 		bullet.global_position = _eject_point.global_position
 		_current_level.add_child(bullet)
+		play_sfx("Shoot")
 
 func _on_body_entered(body) -> void:
 	print("Entered: " + body.name)
@@ -197,14 +212,14 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if _jump_input > 0:
-		print("jumping")
+		#print("jumping")
 		_jump()
+	# Reset the jump input sampled in _process
 	_jump_input = 0
 
 	if _controls_enabled:
 		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		var direction: float = _player_controls.direction.vector2().x # Input.get_axis("ui_left", "ui_right")
+		var direction: float = _player_controls.direction.vector2().x
 		if direction:
 			velocity.x = direction * SPEED
 		else:
