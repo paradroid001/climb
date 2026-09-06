@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b554msfm0ue6v" path="res://Resources/Sprites/PixelAdventure/Background/Yellow.png" id="8_6ioyp"]
 [ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/SpawnPoint.tscn" id="10_d68a7"]
 [ext_resource type="PackedScene" uid="uid://cnuejwt585wyt" path="res://Scenes/Actor/Win.tscn" id="11_q2tg5"]
+[ext_resource type="PackedScene" uid="uid://dsqaltsc342g0" path="res://Scenes/Actor/Spring.tscn" id="12_n1aum"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oovug"]
 texture = ExtResource("2_xrdnt")
@@ -485,3 +486,7 @@ spawn_group = "PowerupSpawn"
 
 [node name="LevelWin" parent="." unique_id=1776590866 instance=ExtResource("11_q2tg5")]
 position = Vector2(3, -1826)
+
+[node name="Spring" parent="." unique_id=1841748582 instance=ExtResource("12_n1aum")]
+position = Vector2(-289, 63)
+spring_velocity = 1200.0
