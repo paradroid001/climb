@@ -103,4 +103,6 @@ func get_axis(axis: Input2DType, normalised: bool = false) -> float:
 		return val.y
 
 func get_vector2() -> Vector2:
+	if _value == Vector2.ZERO:
+		return _value
 	return _value.normalized()
