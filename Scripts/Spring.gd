@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 func spring(player: PlayerMovement) -> void:
 	print("Test spring..." + player.name)
 	if set_state(SpringState.SPRUNG) == SpringState.SPRUNG:
-		player.velocity = Vector2.UP * spring_velocity
+		player.set_velocity(Vector2.UP * spring_velocity)
 
 func set_state(new_state: SpringState) -> SpringState:
 	match new_state:
