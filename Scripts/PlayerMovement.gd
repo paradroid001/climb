@@ -7,6 +7,7 @@ const MAX_FLOCK_SIZE: int = 8
 
 # Emitted whenever we collide with another player
 signal collided_with_player(me: PlayerMovement, them: PlayerMovement)
+signal collided_with_spikes(me: PlayerMovement, them: Spikes)
 
 const _bullet_scene = preload("res://Scenes/Actor/Bullet.tscn")
 @export var _player_character: ClimbCharacter
@@ -25,7 +26,14 @@ var _player_sfx: AudioStreamPlaybackPolyphonic
 @export var _max_flock_positions: int = 100
 @export var _flock_sample_rate:float = 0.01
 @export var _flock_scale: float = 0.7
+
+var flicker: SpriteFlicker
+
 var _flock_spacing_timer: float
+
+var _invulnerability_timer: float
+var _invulnerability_time: float
+
 var _player_id: int = 0
 #did the player start pressing jump this frame?
 var _jump_input: float
@@ -37,10 +45,13 @@ var _was_on_floor: bool
 var _positions: Array[Vector2]
 var _flock: Array[AnimatedSprite2D]
 var _current_level: GameLevel
+var _invulnerable: bool
 
 func _ready() -> void:
 	add_to_group("player")
 	_player_area2D.connect(ClimbGameManager.ON_COLLISION_SIGNAL, _on_body_entered)
+	_invulnerable = false
+	flicker = SpriteFlicker.new()
 	
 	# Init Audio
 	#var audio_stream = AudioStreamPolyphonic.new()
@@ -73,6 +84,16 @@ func _process(delta: float) -> void:
 	#wont happen for flock size 0
 	for index in range(_flock.size()):
 		_flock[index].global_position = _positions[index * (_max_flock_positions/_flock.size())]
+	
+	if _invulnerable:
+		_invulnerability_timer += delta
+		if _invulnerability_timer < _invulnerability_time:
+			flicker.on()
+		else:
+			flicker.off()
+			_invulnerable = false
+	
+	flicker.update(_player_sprite, delta)
 	
 	_name_label.text = _player_character.character_name + " (" + str(_jumps_max - _jumps_used) + ")"	
 	
@@ -156,6 +177,22 @@ func gain_powerups(num: int) -> bool:
 			_remove_flock_member()
 	
 	return true
+
+func is_invulnerable() -> bool:
+	return _invulnerable
+
+func become_invulnerable(time: float) -> void:
+	if !_invulnerable:
+		_invulnerable = true
+		_invulnerability_time = time
+		_invulnerability_timer = 0
+		
+func hit_by_spikes(spikes: Spikes) -> void:
+	if !_invulnerable:
+		collided_with_spikes.emit(self, spikes)
+		become_invulnerable(2.0)
+		var direction: Vector2 = (global_position-spikes.global_position).normalized()
+		velocity = (direction * 500.0)
 
 func reset_jumps() -> void:
 	_jumps_used = 0

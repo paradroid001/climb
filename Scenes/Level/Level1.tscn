@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cnuejwt585wyt" path="res://Scenes/Actor/Win.tscn" id="11_q2tg5"]
 [ext_resource type="PackedScene" uid="uid://dsqaltsc342g0" path="res://Scenes/Actor/Spring.tscn" id="12_n1aum"]
 [ext_resource type="PackedScene" uid="uid://b60pri6wg6x5j" path="res://Scenes/Actor/Platform.tscn" id="13_gl8jy"]
+[ext_resource type="PackedScene" uid="uid://bbpwim4dl6jra" path="res://Scenes/Actor/Spikes.tscn" id="14_u04hf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oovug"]
 texture = ExtResource("2_xrdnt")
@@ -499,4 +500,15 @@ _extents = Vector2(100, 100)
 [node name="Platform2" parent="." unique_id=1583416449 instance=ExtResource("13_gl8jy")]
 position = Vector2(123, -246)
 _movement_mode = 1
-_extents = Vector2(100, 100)
+_extents = Vector2(47.93, 100)
+
+[node name="Spikes2" parent="Platform2" unique_id=1610937445 instance=ExtResource("14_u04hf")]
+position = Vector2(-8, 3)
+rotation = 3.1415927
+
+[node name="Spikes3" parent="Platform2" unique_id=1977088614 instance=ExtResource("14_u04hf")]
+position = Vector2(7, 3)
+rotation = 3.1415927
+
+[node name="Spikes" parent="." unique_id=556774277 instance=ExtResource("14_u04hf")]
+position = Vector2(249, 0)

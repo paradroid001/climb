@@ -73,6 +73,7 @@ func _start_level() -> void:
 func on_child_enter_tree(node: Node) -> void:
 	if node is PlayerMovement:
 		node.connect("collided_with_player", players_collided)
+		node.connect("collided_with_spikes", player_collided_with_spikes)
 	
 func get_state() -> LevelState:
 	return _state
@@ -108,27 +109,30 @@ func win(player: PlayerMovement) -> void:
 		item.enable_controls(false)
 	set_state(LevelState.WIN)
 
+func player_lose_powerups(player: PlayerMovement, num: int) -> void:
+	player.gain_powerups(-num)
+	for i in range(num):
+		print(player.name + " Ejecting powerups: " + str(num))
+		#var pos: SpawnPoint = SpawnPoint.new()
+		var pos: Vector2 = player.get_eject_point()
+		#pos.reusable = true
+		var powerup: Powerup = spawn_powerup(pos)
+		powerup.time_to_enable = 1.5
+		powerup.initial_impulse = Vector2.UP * powerup_impulse.y + Vector2.RIGHT * (powerup_impulse.x * randf() - (powerup_impulse.y/2))
+		if powerup == null:
+			print("Error: Spawned powerup was null!")
+
 # You can pass null for one of these values if its a bullet
 func players_collided(p1: PlayerMovement, p2: PlayerMovement) -> void:
 	#print("Players Collided! " + p1.name + ", " + p2.name)
-	
 	# You lose half your powerups, rounded up.
 	for colliding_player: PlayerMovement in [p1, p2]:
 		if colliding_player != null:
-			var p_powerups = colliding_player.get_num_powerups()
-			var p_lost_powerups = ceil(p_powerups/2)
-			colliding_player.gain_powerups(-p_lost_powerups)
-			
-			for i in range(p_lost_powerups):
-				print(colliding_player.name + " Ejecting powerups: " + str(p_powerups))
-				#var pos: SpawnPoint = SpawnPoint.new()
-				var pos: Vector2 = colliding_player.get_eject_point()
-				#pos.reusable = true
-				var powerup: Powerup = spawn_powerup(pos)
-				powerup.time_to_enable = 1.5
-				powerup.initial_impulse = Vector2.UP * powerup_impulse.y + Vector2.RIGHT * (powerup_impulse.x * randf() - (powerup_impulse.y/2))
-				if powerup == null:
-					print("Error: Spawned powerup was null!")
+			player_lose_powerups(colliding_player, ceil(colliding_player.get_num_powerups()/2))
+					
+func player_collided_with_spikes(player: PlayerMovement, spikes: Spikes) -> void:
+	print("Player collided with spikes, holding powerups: " + str(player.get_num_powerups()))
+	player_lose_powerups(player, ceil(player.get_num_powerups()/2))
 	
 #if you don't give a spawnpoint, it picks a random one.
 func spawn_powerup(spawn_position: Vector2) -> Powerup:
