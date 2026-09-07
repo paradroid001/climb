@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bbpwim4dl6jra"]
+
+[ext_resource type="Script" uid="uid://o80l0d4xo3qq" path="res://Scripts/Spikes.gd" id="1_70mwq"]
+[ext_resource type="Texture2D" uid="uid://q0ajlfe6dm3y" path="res://Resources/Sprites/PixelAdventure/Traps/Spikes/Idle.png" id="2_lmplb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6j7s"]
+size = Vector2(15, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03aes"]
+size = Vector2(13, 7)
+
+[node name="Spikes" type="AnimatableBody2D" unique_id=1610937445 node_paths=PackedStringArray("_area_2d")]
+collision_layer = 2
+sync_to_physics = false
+script = ExtResource("1_70mwq")
+_area_2d = NodePath("Area2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1154131384]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_q6j7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=628304268]
+position = Vector2(0, -8)
+texture = ExtResource("2_lmplb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1920238872]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1795303759]
+position = Vector2(-0.5, -3.5)
+shape = SubResource("RectangleShape2D_03aes")

@@ -1,6 +1,6 @@
 @tool # 1. Allows the script to run live inside the editor
 extends AnimatableBody2D
-
+class_name Platform
 enum PlatformMovementMode {HORIZONTAL, VERTICAL}
 
 @export var _movement_mode: PlatformMovementMode = PlatformMovementMode.HORIZONTAL:
