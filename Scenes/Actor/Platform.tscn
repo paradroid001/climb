@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b60pri6wg6x5j"]
+
+[ext_resource type="Script" uid="uid://b2k3smx6iqfjq" path="res://Scripts/Platform.gd" id="1_0ifpk"]
+[ext_resource type="Texture2D" uid="uid://dtnsg8d5ifih7" path="res://Resources/Sprites/PixelAdventure/Traps/Platforms/Brown Off.png" id="1_5cc2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03aes"]
+size = Vector2(30, 5)
+
+[node name="Platform" type="AnimatableBody2D" unique_id=1812864973]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_0ifpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2028734670]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_03aes")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1431308165]
+texture = ExtResource("1_5cc2l")

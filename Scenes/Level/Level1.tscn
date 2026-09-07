@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://0po4vjehmyxv" path="res://Scenes/Actor/SpawnPoint.tscn" id="10_d68a7"]
 [ext_resource type="PackedScene" uid="uid://cnuejwt585wyt" path="res://Scenes/Actor/Win.tscn" id="11_q2tg5"]
 [ext_resource type="PackedScene" uid="uid://dsqaltsc342g0" path="res://Scenes/Actor/Spring.tscn" id="12_n1aum"]
+[ext_resource type="PackedScene" uid="uid://b60pri6wg6x5j" path="res://Scenes/Actor/Platform.tscn" id="13_gl8jy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oovug"]
 texture = ExtResource("2_xrdnt")
@@ -490,3 +491,12 @@ position = Vector2(3, -1826)
 [node name="Spring" parent="." unique_id=1841748582 instance=ExtResource("12_n1aum")]
 position = Vector2(-289, 63)
 spring_velocity = 1200.0
+
+[node name="Platform" parent="." unique_id=1812864973 instance=ExtResource("13_gl8jy")]
+position = Vector2(-116, -248)
+_extents = Vector2(100, 100)
+
+[node name="Platform2" parent="." unique_id=1583416449 instance=ExtResource("13_gl8jy")]
+position = Vector2(123, -246)
+_movement_mode = 1
+_extents = Vector2(100, 100)
