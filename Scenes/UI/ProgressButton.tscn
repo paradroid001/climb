@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://wkcgjvmge7lq"]
 
+[ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Resources/UI/climb_ui_theme.tres" id="1_hrqd2"]
 [ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/ProgressButton.gd" id="1_uueka"]
+[ext_resource type="Texture2D" uid="uid://dr02kufyhe2oj" path="res://Resources/Sprites/Murdoch/birds_ui.png" id="2_0wmbt"]
 
 [node name="ProgressButton" type="Button" unique_id=632899459 node_paths=PackedStringArray("_progress", "_button")]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hrqd2")
+text = "Sample"
 script = ExtResource("1_uueka")
 _progress = NodePath("TextureProgressBar")
 _button = NodePath(".")
@@ -19,3 +24,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1043207821]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0wmbt")
+draw_center = false
+region_rect = Rect2(144, 16, 16, 16)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2

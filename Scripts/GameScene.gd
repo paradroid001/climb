@@ -13,7 +13,9 @@ const player_scene = preload("res://Scenes/Actor/Player.tscn")
 
 @export var _version_label: Label
 @export var screen_container: HBoxContainer
-@export var _cam_zoom: Vector2 = Vector2.ONE
+@export var _cam_zoom_min: float = 1
+@export var _cam_zoom_max: float = 2
+
 @export var _game_start_ui: GameStartUI
 @export var _game_win_ui: GameWinUI
 
@@ -55,11 +57,17 @@ func _ready() -> void:
 			new_player.global_position = _level_node.get_random_spawn_point(SpawnPoint.PLAYER_SPAWN_GROUP).assign()
 			_level_node.add_child(new_player)
 			new_player.set_level(_level_node)
-			player_camera.set_target(new_player)
-				
+			player_camera.set_target(new_player)	
 			added_players += 1
+	
 	_update_viewport_size()
 	# at this point all players are added.
+	# adjust the cameras
+	for pv:PlayerViewport in _player_viewports.values():
+		var zoom_range: float = _cam_zoom_max - _cam_zoom_min
+		var desired_zoom = _cam_zoom_min + (zoom_range/added_players)
+		pv.player_camera.zoom = Vector2.ONE * desired_zoom
+		print("Set camera " + str(pv.player_id) + " to " + str(desired_zoom))
 	# show the start game UI, and start the countdown.
 	_game_start_ui.connect("game_start_countdown_timeout", _on_game_start_countdown_finished)
 	_game_start_ui.countdown(3)
@@ -91,7 +99,7 @@ func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerViewport:
 	# not 3d
 	new_sv.disable_3d = true
 	var new_cam: PlayerCamera = player_camera_scene.instantiate() as PlayerCamera
-	new_cam.zoom = _cam_zoom
+	new_cam.zoom = Vector2.ONE * _cam_zoom_max
 	new_cam.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	
 	screen_container.add_child(new_svc)

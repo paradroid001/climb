@@ -1,0 +1,85 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bmx3akjimqxcx"]
+
+[ext_resource type="Texture2D" uid="uid://djcb3oxv5bixe" path="res://Resources/Sprites/Murdoch/new/env_spring.png" id="1_vq5o1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2vqe"]
+atlas = ExtResource("1_vq5o1")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngqu5"]
+atlas = ExtResource("1_vq5o1")
+region = Rect2(32, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq5o1"]
+atlas = ExtResource("1_vq5o1")
+region = Rect2(64, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5jm0"]
+atlas = ExtResource("1_vq5o1")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwj3g"]
+atlas = ExtResource("1_vq5o1")
+region = Rect2(32, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oytjd"]
+atlas = ExtResource("1_vq5o1")
+region = Rect2(64, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aygh4"]
+atlas = ExtResource("1_vq5o1")
+region = Rect2(0, 0, 32, 42)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2vqe")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngqu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq5o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5jm0")
+}],
+"loop": 0,
+"name": &"reset",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwj3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oytjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aygh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oytjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwj3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oytjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aygh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oytjd")
+}],
+"loop": 1,
+"name": &"spring",
+"speed": 10.0
+}]

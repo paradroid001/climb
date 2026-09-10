@@ -23,10 +23,16 @@ ClimbGameManager="*uid://busyrxcli6s7m"
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
 project/assembly_name="Climb"
+
+[editor]
+
+movie_writer/mix_rate=44100
+movie_writer/movie_file="E:/Dev/gamedev/GodotGames/ClimbBuild/movie.ogv"
 
 [physics]
 

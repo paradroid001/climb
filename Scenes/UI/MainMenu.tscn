@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://bcos6q2al1wqv"]
 
+[ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Resources/UI/climb_ui_theme.tres" id="1_jex3y"]
 [ext_resource type="Script" uid="uid://cqda1c1a3o5wk" path="res://Scripts/UI/MainMenu.gd" id="1_t6w0q"]
 [ext_resource type="PackedScene" uid="uid://b6kju2mbk4d88" path="res://Scenes/UI/MenuPlayerConfig.tscn" id="2_t6w0q"]
 [ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/ProgressButton.gd" id="3_jex3y"]
 [ext_resource type="Texture2D" uid="uid://cvcqhjurkpiys" path="res://Resources/Sprites/PixelAdventure/Other/Confetti (16x16).png" id="4_744d7"]
+[ext_resource type="FontFile" uid="uid://b2d1r1e24symf" path="res://Resources/Fonts/Bigover.ttf" id="4_kl3t2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_03aes"]
+font = ExtResource("4_kl3t2")
 font_size = 100
 
 [node name="MainMenu" type="Control" unique_id=1923477346 node_paths=PackedStringArray("_version_label", "hbox", "_button_start_game")]
@@ -15,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jex3y")
 script = ExtResource("1_t6w0q")
 _version_label = NodePath("Panel/Version Label")
 hbox = NodePath("Panel/Panel Character/HBoxContainer")
@@ -28,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jex3y")
 
 [node name="Version Label" type="Label" parent="Panel" unique_id=387749173]
 layout_mode = 1
@@ -81,6 +86,7 @@ anchor_bottom = 1.0
 offset_top = -102.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("1_jex3y")
 
 [node name="GridContainer" type="GridContainer" parent="Panel/Panel Game Settings" unique_id=1431294046]
 layout_mode = 1
@@ -89,6 +95,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jex3y")
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
 columns = 2
 
 [node name="Button_Mode" type="Button" parent="Panel/Panel Game Settings/GridContainer" unique_id=293391636]
@@ -103,7 +112,7 @@ text = "Mode: Single Game"
 custom_minimum_size = Vector2(200, 50)
 custom_maximum_size = Vector2(1000, 300)
 layout_mode = 2
-size_flags_horizontal = 7
+size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Start!"
 script = ExtResource("3_jex3y")

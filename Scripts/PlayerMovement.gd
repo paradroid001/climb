@@ -14,6 +14,7 @@ const _bullet_scene = preload("res://Scenes/Actor/Bullet.tscn")
 @export var _player_controls: ClimbControl
 @export var _player_sprite: AnimatedSprite2D
 @export var _player_audio: AudioStreamPlayer
+@export var _facing_right: bool = true
 var _player_sfx: AudioStreamPlaybackPolyphonic
 
 @export var _sfx: Dictionary[String, AudioStream]
@@ -83,7 +84,17 @@ func _process(delta: float) -> void:
 	
 	#wont happen for flock size 0
 	for index in range(_flock.size()):
-		_flock[index].global_position = _positions[index * (_max_flock_positions/_flock.size())]
+		var new_pos = _positions[index * (_max_flock_positions/_flock.size())]
+		# facing to new pos
+		#var posdelta = new_pos - _flock[index].global_position
+		# facing to parent
+		var posdelta = global_position - _flock[index].global_position
+		
+		_flock[index].global_position = new_pos
+		if posdelta.x > 0:
+			_flock[index].flip_h = false
+		elif posdelta.x < 0:
+			_flock[index].flip_h = true
 	
 	if _invulnerable:
 		_invulnerability_timer += delta
@@ -96,7 +107,8 @@ func _process(delta: float) -> void:
 	flicker.update(_player_sprite, delta)
 	
 	_name_label.text = _player_character.character_name + " (" + str(_jumps_max - _jumps_used) + ")"	
-	
+	# player sprite facing
+	_player_sprite.flip_h = !_facing_right
 
 # This is called by the game scene when the player is added
 func init_player(player_id: int) -> void:
@@ -145,6 +157,7 @@ func get_eject_point() -> Vector2:
 func _add_flock_member() -> void:
 	var newguy = _player_sprite.duplicate()
 	newguy.scale = Vector2.ONE * _flock_scale
+	newguy.offset.y = -12 #TODO yikes this hardcode
 	_flock.push_back(newguy)
 	call_deferred("add_child", newguy)
 
@@ -205,6 +218,9 @@ func _can_jump() -> bool:
 func _jump() -> bool:
 	if _jumps_used < _jumps_max:
 		play_sfx("Jump")
+		_player_sprite.play("jump")
+		for sprite: AnimatedSprite2D in _flock:
+			sprite.play("jump", 1.5)
 		velocity.y = JUMP_VELOCITY
 		_jumps_used += 1
 		return true
@@ -246,6 +262,9 @@ func _physics_process(delta: float) -> void:
 		if !_was_on_floor:
 			_was_on_floor = true
 			play_sfx("Land")
+			_player_sprite.play("default")
+			for sprite: AnimatedSprite2D in _flock:
+				sprite.play("default", 1.5)
 
 	# Handle jump.
 	if _jump_input > 0:
@@ -257,9 +276,14 @@ func _physics_process(delta: float) -> void:
 	if _controls_enabled:
 		# Get the input direction and handle the movement/deceleration.
 		var direction: float = _player_controls.direction.vector2().x
-		if direction:
+		if direction != 0:
 			velocity.x = direction * SPEED
+			if direction > 0:
+				_facing_right = true
+			else:
+				_facing_right = false
 		else:
+			#decelerate
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()

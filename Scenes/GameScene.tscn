@@ -13,7 +13,6 @@ font_size = 41
 script = ExtResource("1_6h5vk")
 _version_label = NodePath("CanvasLayer/Control/VersionLabel")
 screen_container = NodePath("CanvasLayer/Control/HBoxContainer")
-_cam_zoom = Vector2(2, 2)
 _game_start_ui = NodePath("CanvasLayer/GameStartUI")
 _game_win_ui = NodePath("CanvasLayer/GameWinUI")
 

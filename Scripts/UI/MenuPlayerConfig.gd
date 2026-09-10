@@ -17,6 +17,7 @@ signal on_player_unready(player_id: int, character_index: int)
 
 var _current_character_index:int  = 0
 var _player_ready: bool
+
 # We are passed the following items after instantiation
 var _player_id: int
 var _connected_player_controls: ClimbControl = null
@@ -37,8 +38,8 @@ func _ready() -> void:
 	_button_cancel.init(_time_to_unready)
 	
 	if _connected_player_controls.device_type == IGameInput.ControllerType.GAMEPAD:
-		_button_ready.text = "(B) Ready"
-		_button_cancel.text = "(A) Cancel"
+		_button_ready.text = "(A) Ready"
+		_button_cancel.text = "(B) Cancel"
 	elif _connected_player_controls.device_type == IGameInput.ControllerType.KEYBOARD:
 		_button_ready.text = "(Space) Ready"
 		_button_cancel.text = "(Ctrl) Cancel"
@@ -97,6 +98,7 @@ func set_sprite_display(frames_index: int) -> void:
 	_player_sprite.sprite_frames = candidate_character.animation_frames
 	_player_sprite.animation = "default"
 	_player_sprite.play("default")
+	_player_label.text = candidate_character.character_name
 	
 # TODO: this function could infinite loop if
 # more players join than there are available chars.

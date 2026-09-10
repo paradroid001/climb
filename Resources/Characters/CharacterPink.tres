@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ClimbCharacter" format=3 uid="uid://b6dr41r7fabyp"]
 
-[ext_resource type="SpriteFrames" uid="uid://4g66qcn7pewg" path="res://Resources/Sprites/Pinky.tres" id="1_yw4kh"]
+[ext_resource type="SpriteFrames" uid="uid://beqbvvmd1vvul" path="res://Resources/Sprites/Pink.tres" id="1_yw4kh"]
 [ext_resource type="Script" uid="uid://c1wpwvu0uvg4r" path="res://Scripts/Game/ClimbCharacter.gd" id="2_cw10p"]
 
 [resource]
 script = ExtResource("2_cw10p")
-character_name = "Pinky"
+character_name = "Pink"
 animation_frames = ExtResource("1_yw4kh")
 animation_map = {
 "run": "default"

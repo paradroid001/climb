@@ -1,0 +1,70 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b5s3bol14wei7"]
+
+[ext_resource type="Texture2D" uid="uid://c36v4f5mshb16" path="res://Resources/Sprites/PixelAdventure/Traps/Trampoline/Jump (28x28).png" id="1_nxypk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqc52"]
+atlas = ExtResource("1_nxypk")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daprl"]
+atlas = ExtResource("1_nxypk")
+region = Rect2(28, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbwou"]
+atlas = ExtResource("1_nxypk")
+region = Rect2(56, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3s6e"]
+atlas = ExtResource("1_nxypk")
+region = Rect2(84, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gogda"]
+atlas = ExtResource("1_nxypk")
+region = Rect2(112, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3b5m"]
+atlas = ExtResource("1_nxypk")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjod1"]
+atlas = ExtResource("1_nxypk")
+region = Rect2(28, 0, 28, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqc52")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daprl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbwou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3s6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gogda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3b5m")
+}],
+"loop": 1,
+"name": &"reset",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjod1")
+}],
+"loop": 1,
+"name": &"spring",
+"speed": 0.0
+}]

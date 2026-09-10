@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ClimbCharacter" format=3 uid="uid://l4u3ce7f71tt"]
+
+[ext_resource type="SpriteFrames" uid="uid://8hk18op7d2ig" path="res://Resources/Sprites/Sully.tres" id="1_wk7v4"]
+[ext_resource type="Script" uid="uid://c1wpwvu0uvg4r" path="res://Scripts/Game/ClimbCharacter.gd" id="2_bsv0v"]
+
+[resource]
+script = ExtResource("2_bsv0v")
+character_name = "Sully"
+animation_frames = ExtResource("1_wk7v4")
+metadata/_custom_type_script = "uid://c1wpwvu0uvg4r"

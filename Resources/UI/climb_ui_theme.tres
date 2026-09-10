@@ -1,3 +1,15 @@
 [gd_resource type="Theme" format=3 uid="uid://b5feckebcg08v"]
 
+[ext_resource type="FontFile" uid="uid://ughp2sbbwhtt" path="res://Resources/Fonts/SilverXSPremiumC.ttf" id="1_e7mkb"]
+[ext_resource type="StyleBox" uid="uid://2vfc7i1fya74" path="res://Resources/UI/new_style_box_buttons.tres" id="2_a2d42"]
+[ext_resource type="StyleBox" uid="uid://bm2a7h2s1mce1" path="res://Resources/Sprites/UI/UI_style_box_flat.tres" id="2_uib75"]
+
 [resource]
+default_font = ExtResource("1_e7mkb")
+default_font_size = 26
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_e7mkb")
+Button/styles/normal = ExtResource("2_a2d42")
+Panel/styles/panel = ExtResource("2_uib75")
+VBoxContainer/constants/separation = 7
