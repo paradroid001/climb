@@ -2,13 +2,20 @@
 
 [ext_resource type="Script" uid="uid://ctpivjvyyjujn" path="res://Scripts/LevelFinish.gd" id="1_lnvc1"]
 [ext_resource type="SpriteFrames" uid="uid://dc4yyio1fj8sy" path="res://Resources/Sprites/Win.tres" id="1_w3kmw"]
+[ext_resource type="Texture2D" uid="uid://i0gjyfshmprp" path="res://Resources/Sprites/PixelAdventure/Other/Dust Particle.png" id="3_setrq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03aes"]
 size = Vector2(36, 42.485)
 
-[node name="WinCup" type="Node2D" unique_id=1776590866 node_paths=PackedStringArray("_area2d")]
+[sub_resource type="Gradient" id="Gradient_txgvf"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.11986301, 0.293379, 0.40068492, 0.6312785, 0.7796804, 1)
+colors = PackedColorArray(0.87753564, 0.35239297, 0.8652264, 1, 0.9472055, 0.3350194, 0.3839322, 1, 0.9735808, 0.46884006, 0.2172172, 1, 0.94838005, 0.8424776, 0.27019426, 1, 0.3405108, 0.47480202, 0.9847447, 1, 0.7167319, 0.7167319, 0.7167319, 1, 1, 1, 1, 1)
+
+[node name="WinCup" type="Node2D" unique_id=1776590866 node_paths=PackedStringArray("_area2d", "_particles")]
 script = ExtResource("1_lnvc1")
 _area2d = NodePath("AnimatedSprite2D/Area2D")
+_particles = NodePath("CPUParticles2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1772383345]
 position = Vector2(0, -32.485)
@@ -20,3 +27,24 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1680498824]
 position = Vector2(1, 11.2425)
 shape = SubResource("RectangleShape2D_03aes")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=176985507]
+position = Vector2(0, -51)
+emitting = false
+amount = 800
+texture = ExtResource("3_setrq")
+lifetime = 1.84
+explosiveness = 0.36
+randomness = 0.51
+lifetime_randomness = 0.21
+emission_shape = 6
+emission_ring_inner_radius = 10.0
+emission_ring_radius = 20.0
+direction = Vector2(10, -200)
+spread = 32.09
+gravity = Vector2(0, 700)
+initial_velocity_min = 502.05
+initial_velocity_max = 502.05
+scale_amount_min = 0.0
+scale_amount_max = 0.5
+color_initial_ramp = SubResource("Gradient_txgvf")

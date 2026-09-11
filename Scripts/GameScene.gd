@@ -99,6 +99,7 @@ func _on_game_start_countdown_finished() -> void:
 func _on_level_change_state(state: GameLevel.LevelState, old_state: GameLevel.LevelState) -> void:
 	if state == GameLevel.LevelState.WIN:
 		print("Game recieved signal that level entered WIN state")
+		_game_win_ui.set_winning_player(_level_node.winning_player)
 		_game_win_ui.enable(true)
 	
 

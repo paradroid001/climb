@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 class_name Spring
 
 enum SpringState {READY, RESETTING, SPRUNG}

@@ -5,6 +5,7 @@ class_name LevelFinish
 signal player_has_won(player: PlayerMovement)
 
 @export var _area2d: Area2D
+@export var _particles: CPUParticles2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_area2d.connect(ClimbGameManager.ON_COLLISION_SIGNAL, on_area2d_entered)
@@ -17,4 +18,5 @@ func _process(delta: float) -> void:
 
 func on_area2d_entered(body) -> void:
 	if body is PlayerMovement:
+		_particles.emitting = true
 		player_has_won.emit(body)

@@ -10,6 +10,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_03aes"]
 font = ExtResource("4_kl3t2")
 font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control" unique_id=1923477346 node_paths=PackedStringArray("_version_label", "hbox", "_button_start_game")]
 layout_mode = 3

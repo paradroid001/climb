@@ -203,6 +203,7 @@ func become_invulnerable(time: float) -> void:
 func hit_by_spikes(spikes: Spikes) -> void:
 	if !_invulnerable:
 		collided_with_spikes.emit(self, spikes)
+		play_sfx("Collide")
 		become_invulnerable(2.0)
 		var direction: Vector2 = (global_position-spikes.global_position).normalized()
 		velocity = (direction * 500.0)

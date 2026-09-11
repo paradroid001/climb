@@ -2,13 +2,21 @@ extends PanelContainer
 class_name GameWinUI
 
 @export var _back_to_menu_button: ProgressButton
+@export var _player_name_label: Label
 var _active: bool
+var _winning_player: ClimbPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	enable(false)
-	
+
+func set_winning_player(player: ClimbPlayer) -> void:
+	_winning_player = player	
+
 func enable(enabled:bool) -> void:
+	if enabled and _winning_player != null:
+		_player_name_label.text = _winning_player.get_character().character_name + " wins!"
 	#Set the button's total time to 3 seconds for every player.
 	_back_to_menu_button.init(ClimbGameManager.get_players().size() * 3)
 	_active = enabled

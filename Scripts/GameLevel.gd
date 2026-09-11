@@ -12,6 +12,7 @@ const _powerup_scene = preload("res://Scenes/Actor/Powerup.tscn")
 @export var _level_finish: LevelFinish
 var _state: LevelState = LevelState.NOT_STARTED
 var spawns: Dictionary[String, Array]
+var winning_player: ClimbPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -108,6 +109,7 @@ func win(player: PlayerMovement) -> void:
 	player.velocity.x = 0
 	for item:PlayerMovement in get_tree().get_nodes_in_group("player"):
 		item.enable_controls(false)
+	winning_player = ClimbGameManager.get_player(player.get_player_id())
 	set_state(LevelState.WIN)
 
 func player_lose_powerups(player: PlayerMovement, num: int) -> void:

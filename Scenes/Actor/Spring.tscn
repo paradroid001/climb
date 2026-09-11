@@ -10,7 +10,7 @@ size = Vector2(27, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cgl0"]
 size = Vector2(23, 3)
 
-[node name="Spring" type="RigidBody2D" unique_id=1841748582 node_paths=PackedStringArray("_area2d", "_sprite", "_audio")]
+[node name="Spring" type="StaticBody2D" unique_id=24672065 node_paths=PackedStringArray("_area2d", "_sprite", "_audio")]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_rqc52")
