@@ -33,7 +33,8 @@ _eject_point = NodePath("EjectPoint")
 _max_flock_positions = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=183271708]
-position = Vector2(0, -16)
+position = Vector2(0, -19)
+scale = Vector2(1.2, 1.2)
 sprite_frames = ExtResource("6_ott6o")
 autoplay = "default"
 
@@ -42,6 +43,7 @@ position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_03aes")
 
 [node name="Label_Name" type="Label" parent="." unique_id=914762929]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 anchors_preset = 7
 anchor_left = 0.5

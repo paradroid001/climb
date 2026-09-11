@@ -2,9 +2,9 @@ extends Node
 
 const ON_COLLISION_SIGNAL: StringName = "body_entered"
 const VERSION_MAJOR: int = 0
-const VERSION_MINOR: int = 7
+const VERSION_MINOR: int = 9
 const VERSION_BRANCH: String = "develop"
-const OVERLAY_TEXT: String = "Alpha Gameplay, Test GFX"
+const OVERLAY_TEXT: String = ""
 
 # not using class name because this is an autoload script, I want
 # to be able to call it something else.

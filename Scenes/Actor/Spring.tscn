@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c412x2hsa68nh" path="res://Resources/Audio/bounce.wav" id="3_hoqye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6j7s"]
-size = Vector2(25, 6)
+size = Vector2(27, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cgl0"]
 size = Vector2(23, 3)
@@ -20,13 +20,13 @@ _sprite = NodePath("AnimatedSprite2D")
 _audio = NodePath("AudioStreamPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=641214652]
-position = Vector2(-0.5, -3)
+z_index = 1
+position = Vector2(0.5, -3)
 shape = SubResource("RectangleShape2D_q6j7s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=690928596]
 position = Vector2(0, -21)
 sprite_frames = ExtResource("2_hoqye")
-animation = &"spring"
 autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1407787388]

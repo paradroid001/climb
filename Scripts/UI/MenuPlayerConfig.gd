@@ -22,7 +22,7 @@ var _player_ready: bool
 var _player_id: int
 var _connected_player_controls: ClimbControl = null
 var _available_roster: Dictionary[int, bool]
-
+var _dirty: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,14 +38,16 @@ func _ready() -> void:
 	_button_cancel.init(_time_to_unready)
 	
 	if _connected_player_controls.device_type == IGameInput.ControllerType.GAMEPAD:
-		_button_ready.text = "(A) Ready"
-		_button_cancel.text = "(B) Cancel"
+		_button_ready.text = "(B) Ready"
+		_button_cancel.text = "(A) Cancel"
 	elif _connected_player_controls.device_type == IGameInput.ControllerType.KEYBOARD:
 		_button_ready.text = "(Space) Ready"
 		_button_cancel.text = "(Ctrl) Cancel"
 	update_characters() #sync with the available roster
 	# Set the frames to the first entry
 	set_sprite_display(_current_character_index)
+	# Force a layout update
+	#mark_dirty(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,6 +57,11 @@ func _process(delta: float) -> void:
 	if !_player_ready and _connected_player_controls.direction.just_released():
 		increment_character(1)
 		_audio.play()
+	
+	# Process if the layout/size has changed
+	#if _dirty:
+	update_sprite_position()
+	#	_dirty = false
 	
 	# Detecting if player is trying to ready
 	if ! _player_ready:
@@ -79,6 +86,9 @@ func _process(delta: float) -> void:
 			_player_ready = false
 			print("Player " + str(_player_id) + " unreadied")
 			on_player_unready.emit(_player_id, _current_character_index)
+
+func mark_dirty(value: bool) -> void:
+	_dirty = value
 		
 # The menu is telling us that someone chose a character
 # Our map will be refreshed, we need to check if we are 'on' that char.
@@ -91,6 +101,10 @@ func update_characters() -> void:
 	if !_available_roster[_current_character_index]:
 		increment_character(1)
 		#TODO: optionally interrupt readying.
+
+func update_sprite_position() -> void:
+	#print("Hbox width is " + str(size.x))
+	_player_sprite.position.x = (size.x / 2)
 
 # set the display sprite, assume frames index is valid
 func set_sprite_display(frames_index: int) -> void:

@@ -19,7 +19,7 @@ const player_scene = preload("res://Scenes/Actor/Player.tscn")
 @export var _game_start_ui: GameStartUI
 @export var _game_win_ui: GameWinUI
 
-var _level_to_load: String = "res://Scenes/Level/Level1.tscn"
+var _level_to_load: String = "res://Scenes/Level/level_2.tscn"
 
 # Keeping track of added viewports - mapping of playerid to PlayerViewport
 var _player_viewports: Dictionary[int, PlayerViewport]
@@ -49,8 +49,16 @@ func _ready() -> void:
 			if added_players == 0:
 				_load_level() #loads level into first viewport, sets _level_node
 			player_viewport.parallax_layer = _level_node._parallax_layer.duplicate()
-			player_viewport.sub_viewport.add_child(player_viewport.parallax_layer)
+			_level_node.remove_child(player_viewport.parallax_layer)
+			
+			player_viewport.parallax_layer.visibility_layer = player_viewport.player_id + 2
 			player_viewport.parallax_layer.visible = true
+			player_viewport.sub_viewport.add_child(player_viewport.parallax_layer)
+			print("Subviewport cull mask for player " + str(player_viewport.player_id) + " = " + str(player_viewport.sub_viewport.canvas_cull_mask))
+			player_viewport.sub_viewport.canvas_cull_mask |= (1 << (player_viewport.player_id + 2))
+			print("Updated subviewport cull mask for player " + str(player_viewport.player_id) + " = " + str(player_viewport.sub_viewport.canvas_cull_mask))
+			
+			
 			print("SV cam = " + player_viewport.sub_viewport.get_camera_2d().name)
 			player_camera = player_viewport.player_camera
 			_player_viewports[player.get_player_id()] = player_viewport
@@ -68,6 +76,11 @@ func _ready() -> void:
 		var desired_zoom = _cam_zoom_min + (zoom_range/added_players)
 		pv.player_camera.zoom = Vector2.ONE * desired_zoom
 		print("Set camera " + str(pv.player_id) + " to " + str(desired_zoom))
+	
+	_level_node.remove_child(_level_node._parallax_layer)
+	_level_node._parallax_layer.queue_free()
+	_level_node._parallax_layer = null
+	
 	# show the start game UI, and start the countdown.
 	_game_start_ui.connect("game_start_countdown_timeout", _on_game_start_countdown_finished)
 	_game_start_ui.countdown(3)
@@ -107,7 +120,7 @@ func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerViewport:
 	new_sv.add_child(new_cam)
 	
 	#make this camera the current for the subviewport
-	new_cam.make_current()
+	#new_cam.make_current()
 	
 	if _first_subviewport != null:
 		# for non first viewports, the player has been passed in.

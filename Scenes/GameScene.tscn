@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bondvgauyjts3"]
 
 [ext_resource type="Script" uid="uid://dmpp7u2jmlsmv" path="res://Scripts/GameScene.gd" id="1_6h5vk"]
+[ext_resource type="Theme" uid="uid://b5feckebcg08v" path="res://Resources/UI/climb_ui_theme.tres" id="2_kilg5"]
 [ext_resource type="Script" uid="uid://kfq1l547twdr" path="res://Scripts/UI/GameStartUI.gd" id="3_fiftr"]
 [ext_resource type="Script" uid="uid://b4l8ywanptldn" path="res://Scripts/UI/GameWinUI.gd" id="3_rgj8m"]
 [ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/ProgressButton.gd" id="4_rgj8m"]
@@ -10,6 +11,7 @@
 font_size = 41
 
 [node name="GameScene" type="Node2D" unique_id=1701044029 node_paths=PackedStringArray("_version_label", "screen_container", "_game_start_ui", "_game_win_ui")]
+visibility_layer = 524288
 script = ExtResource("1_6h5vk")
 _version_label = NodePath("CanvasLayer/Control/VersionLabel")
 screen_container = NodePath("CanvasLayer/Control/HBoxContainer")
@@ -25,12 +27,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -380.0
-offset_top = -148.5
-offset_right = 380.0
-offset_bottom = 148.5
+offset_left = -106.0
+offset_top = -101.0
+offset_right = 106.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_kilg5")
 script = ExtResource("3_fiftr")
 _countdown_label = NodePath("VBoxContainer/Label2")
 
@@ -55,19 +58,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameWinUI" type="PanelContainer" parent="CanvasLayer" unique_id=1569869588 node_paths=PackedStringArray("_back_to_menu_button")]
-visible = false
 z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -316.5
-offset_top = -173.0
-offset_right = 316.5
-offset_bottom = 173.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -207.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme = ExtResource("2_kilg5")
 script = ExtResource("3_rgj8m")
 _back_to_menu_button = NodePath("VBoxContainer/ProgressButton")
 

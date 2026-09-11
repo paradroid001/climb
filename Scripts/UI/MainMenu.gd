@@ -60,6 +60,10 @@ func new_player_join(player: ClimbPlayer) -> void:
 	_player_configs.push_back(player_config)
 	# add to the scene
 	hbox.add_child(player_config)
+	
+	# Adjust all player config sprite layouts
+	for config_child: MenuPlayerConfig in _player_configs:
+		config_child.mark_dirty(true)
 
 func player_is_ready(player_id: int, character_index: int) -> void:
 	# Mark character unavailable

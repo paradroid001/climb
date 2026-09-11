@@ -102,11 +102,10 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.45882353)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/VBoxContainer/Panel_Character/ColorRect" unique_id=545423546]
-position = Vector2(-1.9999619, 25.999983)
-scale = Vector2(4.451, 4.2)
+position = Vector2(68.00004, 101.999985)
+scale = Vector2(3.75, 3.539)
 sprite_frames = ExtResource("5_7qwky")
 autoplay = "default"
-centered = false
 
 [node name="Button_Ready" type="Button" parent="Panel/VBoxContainer" unique_id=1921536595 node_paths=PackedStringArray("_progress", "_button")]
 custom_minimum_size = Vector2(0, 50)

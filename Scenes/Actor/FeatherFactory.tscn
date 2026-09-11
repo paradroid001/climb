@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bfqks5c8uwrnm"]
+
+[ext_resource type="Texture2D" uid="uid://foq1wi677v4a" path="res://Resources/Sprites/Murdoch/new/ui_assets.png" id="1_2cjv2"]
+[ext_resource type="Script" uid="uid://dfagxloutj0ku" path="res://Scripts/FeatherFactory.gd" id="1_4ld4m"]
+[ext_resource type="Texture2D" uid="uid://dvll5wcgd6o3b" path="res://Resources/Sprites/Murdoch/new/feather.png" id="2_4ld4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6j7s"]
+size = Vector2(46, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8meg"]
+atlas = ExtResource("2_4ld4m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03aes"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8meg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03aes"]
+size = Vector2(50, 44)
+
+[node name="FeatherFactory" type="RigidBody2D" unique_id=2141710317 node_paths=PackedStringArray("_area2d", "_eject_point")]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_4ld4m")
+_area2d = NodePath("Area2D")
+_eject_point = NodePath("EjectPoint")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1317054371]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_q6j7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=775196682]
+position = Vector2(0, -24)
+scale = Vector2(3, 3)
+texture = ExtResource("1_2cjv2")
+region_enabled = true
+region_rect = Rect2(96, 0, 16, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=480598665]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_03aes")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=964730590]
+position = Vector2(0, -24)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1011702590]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_03aes")
+
+[node name="EjectPoint" type="Node2D" parent="." unique_id=1185012791]
+position = Vector2(0, -56)

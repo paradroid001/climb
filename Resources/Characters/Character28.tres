@@ -96,6 +96,6 @@ animations = [{
 
 [resource]
 script = ExtResource("3_r5oiv")
-character_name = "28"
+character_name = "Twenty-8"
 animation_frames = SubResource("SpriteFrames_rcedl")
 metadata/_custom_type_script = "uid://c1wpwvu0uvg4r"

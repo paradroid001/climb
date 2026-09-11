@@ -39,7 +39,7 @@ func _ready() -> void:
 		on_child_enter_tree(item)
 		
 	# disable the parallax background - each subviewport will duplicate this themselves.
-	_parallax_layer.visible = false
+	#_parallax_layer.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -105,6 +105,7 @@ func set_state(new_state: LevelState) -> void:
 	
 func win(player: PlayerMovement) -> void:
 	print("Player won! " + ClimbGameManager.get_player(player.get_player_id()).name)
+	player.velocity.x = 0
 	for item:PlayerMovement in get_tree().get_nodes_in_group("player"):
 		item.enable_controls(false)
 	set_state(LevelState.WIN)

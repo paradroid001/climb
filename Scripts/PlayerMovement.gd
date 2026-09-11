@@ -3,7 +3,7 @@ class_name PlayerMovement
 
 const SPEED: float = 300.0
 const JUMP_VELOCITY: float = -400.0
-const MAX_FLOCK_SIZE: int = 8
+const MAX_FLOCK_SIZE: int = 5
 
 # Emitted whenever we collide with another player
 signal collided_with_player(me: PlayerMovement, them: PlayerMovement)
@@ -280,10 +280,16 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 			if direction > 0:
 				_facing_right = true
-			else:
+			elif direction < 0:
 				_facing_right = false
 		else:
 			#decelerate
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
+			
 	move_and_slide()
+	if is_on_floor():
+		if velocity.x == 0:
+			_player_sprite.play("idle")
+		else:
+			_player_sprite.play("default")
+	
