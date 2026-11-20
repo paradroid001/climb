@@ -6,12 +6,18 @@
 [ext_resource type="Script" uid="uid://buunw0svrjmol" path="res://Scripts/UI/ProgressButton.gd" id="3_jex3y"]
 [ext_resource type="Texture2D" uid="uid://cvcqhjurkpiys" path="res://Resources/Sprites/PixelAdventure/Other/Confetti (16x16).png" id="4_744d7"]
 [ext_resource type="FontFile" uid="uid://b2d1r1e24symf" path="res://Resources/Fonts/Bigover.ttf" id="4_kl3t2"]
+[ext_resource type="Texture2D" uid="uid://bmoiifo3pi8ap" path="res://Resources/Sprites/Murdoch/new/env_tiles.png" id="7_744d7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_03aes"]
 font = ExtResource("4_kl3t2")
 font_size = 100
-outline_size = 20
-outline_color = Color(0, 0, 0, 1)
+outline_size = 40
+outline_color = Color(0.92156863, 0.15686275, 0.36862746, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 40
+stacked_outline_0/color = Color(0.9490196, 0.7176471, 0.27058825, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2d42"]
 
 [node name="MainMenu" type="Control" unique_id=1923477346 node_paths=PackedStringArray("_version_label", "hbox", "_button_start_game")]
 layout_mode = 3
@@ -36,22 +42,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jex3y")
 
-[node name="Version Label" type="Label" parent="Panel" unique_id=387749173]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=411356195]
+position = Vector2(975.90826, 336.5)
+scale = Vector2(4.630589, 5.2375007)
+texture = ExtResource("7_744d7")
+region_enabled = true
+region_rect = Rect2(0, 0, 79, 80)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel" unique_id=2079815296]
+position = Vector2(178.99994, 336.5)
+scale = Vector2(4.630589, 5.2375007)
+texture = ExtResource("7_744d7")
+region_enabled = true
+region_rect = Rect2(0, 0, 79, 80)
 
 [node name="Label" type="Label" parent="Panel" unique_id=1176898215]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -347.0
-offset_right = 349.0
+offset_left = -408.0
+offset_right = 410.0
 offset_bottom = 142.0
 grow_horizontal = 2
 text = "Flock Frenzy!"
@@ -68,6 +79,7 @@ offset_top = 149.0
 offset_bottom = -117.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a2d42")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel Character" unique_id=1441858736]
 layout_mode = 1
@@ -80,6 +92,8 @@ theme_override_constants/separation = 4
 alignment = 1
 
 [node name="Panel Game Settings" type="Panel" parent="Panel" unique_id=1899034108]
+propagate_maximum_size = true
+clip_contents = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -91,6 +105,7 @@ grow_vertical = 0
 theme = ExtResource("1_jex3y")
 
 [node name="GridContainer" type="GridContainer" parent="Panel/Panel Game Settings" unique_id=1431294046]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,16 +118,14 @@ theme_override_constants/v_separation = 4
 columns = 2
 
 [node name="Button_Mode" type="Button" parent="Panel/Panel Game Settings/GridContainer" unique_id=293391636]
-custom_minimum_size = Vector2(200, 50)
-custom_maximum_size = Vector2(1000, 300)
+custom_minimum_size = Vector2(-1, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Mode: Single Game"
 
 [node name="Button_Start" type="Button" parent="Panel/Panel Game Settings/GridContainer" unique_id=1544608820 node_paths=PackedStringArray("_progress", "_button")]
-custom_minimum_size = Vector2(200, 50)
-custom_maximum_size = Vector2(1000, 300)
+custom_minimum_size = Vector2(-1, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -130,3 +143,12 @@ grow_horizontal = 2
 grow_vertical = 2
 nine_patch_stretch = true
 texture_progress = ExtResource("4_744d7")
+
+[node name="Version Label" type="Label" parent="Panel" unique_id=387749173]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
