@@ -50,7 +50,7 @@ func _ready() -> void:
 	#mark_dirty(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _connected_player_controls == null:
 		return
 	# Selecting character (left and right)	

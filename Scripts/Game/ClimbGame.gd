@@ -47,7 +47,7 @@ func _ready() -> void:
 	reset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _game_state == ClimbGameState.LOADING:
 		var load_status = ResourceLoader.load_threaded_get_status(_scene_path_to_load, _load_progress_value)
 		load_scene_progress_changed.emit(_load_progress_value[0])
@@ -55,11 +55,11 @@ func _process(delta: float) -> void:
 			ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 				print("Scene Load: Invalid resource")
 				# Go back to playing state, no load has happened
-				_game_state == ClimbGameState.PLAYING
+				_game_state = ClimbGameState.PLAYING
 			ResourceLoader.THREAD_LOAD_FAILED:
 				print("Scene Load: failed")
 				# Go back to playing state, no load has happened
-				_game_state == ClimbGameState.PLAYING
+				_game_state = ClimbGameState.PLAYING
 			ResourceLoader.THREAD_LOAD_LOADED:
 				print("Scene Load: finished!")
 				_loaded_scene = ResourceLoader.load_threaded_get(_scene_path_to_load)
@@ -112,7 +112,7 @@ func reset() -> void:
 	detect_gamepads(0, true)
 
 # Detect the gamepads connected.
-func detect_gamepads(device: int, connected: bool) -> void:
+func detect_gamepads(_device: int, _connected: bool) -> void:
 	var joy_ids = Input.get_connected_joypads()
 	for id in joy_ids:
 		_gamepad_info[id] = Input.get_joy_info(id);
@@ -161,7 +161,7 @@ func player_join(control: ClimbControl) -> int:
 	return player_id
 
 # A player leaves.
-func player_leave(index: int) -> void:
+func player_leave(_index: int) -> void:
 	pass
 
 func get_character_roster() -> Array[ClimbCharacter]:

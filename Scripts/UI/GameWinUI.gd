@@ -23,7 +23,7 @@ func enable(enabled:bool) -> void:
 	visible = _active
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !_active:
 		return
 	var total_time_held:float = 0

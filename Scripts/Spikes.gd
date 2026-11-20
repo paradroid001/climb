@@ -7,7 +7,7 @@ func _ready() -> void:
 	_area_2d.connect(ClimbGameManager.ON_COLLISION_SIGNAL, on_area2d_body_enter)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func on_area2d_body_enter(body) -> void:

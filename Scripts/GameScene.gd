@@ -88,7 +88,7 @@ func _ready() -> void:
 	_level_node.set_state(GameLevel.LevelState.SETTING_UP)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func _on_game_start_countdown_finished() -> void:
@@ -96,14 +96,14 @@ func _on_game_start_countdown_finished() -> void:
 	_level_node.set_state(GameLevel.LevelState.PLAYING)
 
 # We get this when the level signals there is a winner.
-func _on_level_change_state(state: GameLevel.LevelState, old_state: GameLevel.LevelState) -> void:
+func _on_level_change_state(state: GameLevel.LevelState, _old_state: GameLevel.LevelState) -> void:
 	if state == GameLevel.LevelState.WIN:
 		print("Game recieved signal that level entered WIN state")
 		_game_win_ui.set_winning_player(_level_node.winning_player)
 		_game_win_ui.enable(true)
 	
 
-func _add_new_player_viewport(player_node: CharacterBody2D) -> PlayerViewport:
+func _add_new_player_viewport(_player_node: CharacterBody2D) -> PlayerViewport:
 	var player_viewport: PlayerViewport = PlayerViewport.new()
 	 
 	var new_svc: SubViewportContainer = SubViewportContainer.new()

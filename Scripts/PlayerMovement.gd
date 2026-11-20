@@ -137,10 +137,10 @@ func get_player_id() -> int:
 func set_level(level: GameLevel) -> void:
 	_current_level = level
 
-func play_sfx(name: String) -> void:
-	if name in _sfx.keys():
+func play_sfx(soundname: String) -> void:
+	if soundname in _sfx.keys():
 		# sfx, offset, vol(db), pitch
-		_player_sfx.play_stream(_sfx[name], 0, 0, 1.0)
+		_player_sfx.play_stream(_sfx[soundname], 0, 0, 1.0)
 
 # We don't actually change the _player_controls,
 # because we still want to recieve inputs for UI.

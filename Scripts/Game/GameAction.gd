@@ -36,7 +36,7 @@ func remove_input(input: IGameInput) -> void:
 		_inputs.erase(input.get_id())
 		
 # one of the inputs was pressed
-func on_pressed(id: String, delta: float) -> void:
+func on_pressed(_id: String, delta: float) -> void:
 	if _state == InputState.NOT_PRESSED:
 		#print("Pressed " + id)
 		_state = InputState.PRESSED
@@ -47,7 +47,7 @@ func on_pressed(id: String, delta: float) -> void:
 		_state = InputState.HELD
 	
 # one of the inputs was released
-func on_released(id: String, delta: float) -> void:
+func on_released(_id: String, _delta: float) -> void:
 	if _state == InputState.PRESSED or _state == InputState.HELD:
 		#print("Released " + id)
 		_state = InputState.RELEASED

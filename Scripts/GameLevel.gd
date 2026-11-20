@@ -43,7 +43,7 @@ func _ready() -> void:
 	#_parallax_layer.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 # Set the game up.
@@ -133,7 +133,7 @@ func players_collided(p1: PlayerMovement, p2: PlayerMovement) -> void:
 		if colliding_player != null:
 			player_lose_powerups(colliding_player, ceil(colliding_player.get_num_powerups()/2))
 					
-func player_collided_with_spikes(player: PlayerMovement, spikes: Spikes) -> void:
+func player_collided_with_spikes(player: PlayerMovement, _spikes: Spikes) -> void:
 	print("Player collided with spikes, holding powerups: " + str(player.get_num_powerups()))
 	player_lose_powerups(player, ceil(player.get_num_powerups()/2))
 	

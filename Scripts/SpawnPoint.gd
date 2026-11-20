@@ -14,7 +14,7 @@ func _ready() -> void:
 	add_to_group(spawn_group) #group for all spawn points
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 # Assign an entity to this spawnpoint
