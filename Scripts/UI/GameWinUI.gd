@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 	for player: ClimbPlayer in ClimbGameManager.get_players():
 		total_time_held += player.get_controls().jump.time_held()
 	_back_to_menu_button.set_value(total_time_held)
-	print("Progress: " + str(_back_to_menu_button.get_value()) )
+	#print("Progress: " + str(_back_to_menu_button.get_value()) )
 	
 	if _back_to_menu_button.button_pressed:
 		ClimbGameManager.load_scene("Menu")

@@ -1,9 +1,9 @@
 extends Node
 
 const ON_COLLISION_SIGNAL: StringName = "body_entered"
-const VERSION_MAJOR: int = 0
-const VERSION_MINOR: int = 9
-const VERSION_BRANCH: String = "develop"
+const VERSION_MAJOR: int = 1
+const VERSION_MINOR: int = 0
+const VERSION_BRANCH: String = "showcase"
 const OVERLAY_TEXT: String = ""
 
 # not using class name because this is an autoload script, I want
@@ -53,9 +53,12 @@ func _process(_delta: float) -> void:
 		load_scene_progress_changed.emit(_load_progress_value[0])
 		match load_status:
 			ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
-				print("Scene Load: Invalid resource")
+				# This probably just means we are polling before
+				# the thread has started loading. Ignore.
+				pass
+				#print("Scene Load: Invalid resource " + ResourceLoader.)
 				# Go back to playing state, no load has happened
-				_game_state = ClimbGameState.PLAYING
+				#_game_state = ClimbGameState.PLAYING
 			ResourceLoader.THREAD_LOAD_FAILED:
 				print("Scene Load: failed")
 				# Go back to playing state, no load has happened
@@ -73,7 +76,7 @@ func get_overlay_text() -> String:
 
 func load_scene(scene_name: String) -> bool:
 	if _game_state == ClimbGameState.LOADING:
-		print("Can't load a scene while an existing load is happening")
+		print("Can't load a scene ("+ scene_name +") while an existing load is happening (" + _scene_path_to_load + ")")
 		return false
 	var scene_path = _settings.scene_paths.get(scene_name)
 	if scene_path == null:

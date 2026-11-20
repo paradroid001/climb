@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		_button_start_game.reset()
 		
 	# If the start button is pressed, we transition scenes.
-	if _button_start_game.button_pressed:
+	if _button_start_game.button_pressed and ClimbGameManager._game_state != ClimbGameManager.ClimbGameState.LOADING:
 		ClimbGameManager.load_scene("Game")
 	
 func new_player_join(player: ClimbPlayer) -> void:
