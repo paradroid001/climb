@@ -38,8 +38,8 @@ func _ready() -> void:
 	_button_cancel.init(_time_to_unready)
 	
 	if _connected_player_controls.device_type == IGameInput.ControllerType.GAMEPAD:
-		_button_ready.text = "(B) Ready"
-		_button_cancel.text = "(A) Cancel"
+		_button_ready.text = "(A) Ready"
+		_button_cancel.text = "(B) Cancel"
 	elif _connected_player_controls.device_type == IGameInput.ControllerType.KEYBOARD:
 		_button_ready.text = "(Space) Ready"
 		_button_cancel.text = "(Ctrl) Cancel"
@@ -50,7 +50,7 @@ func _ready() -> void:
 	#mark_dirty(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _connected_player_controls == null:
 		return
 	# Selecting character (left and right)	

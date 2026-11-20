@@ -595,6 +595,7 @@ rotation = 3.1415927
 
 [node name="FeatherFactory" parent="." unique_id=2141710317 node_paths=PackedStringArray("_level") instance=ExtResource("16_1kfys")]
 position = Vector2(-1, -256)
+disable_mode = 1
 _level = NodePath("..")
 
 [node name="Spikes" parent="FeatherFactory" unique_id=894663876 instance=ExtResource("14_1udw3")]

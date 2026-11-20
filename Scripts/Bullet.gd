@@ -16,7 +16,7 @@ func _ready() -> void:
 	apply_impulse(_direction * 500)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func init_bullet(direction: Vector2, player: ClimbPlayer, level: GameLevel) -> void:
@@ -26,7 +26,7 @@ func init_bullet(direction: Vector2, player: ClimbPlayer, level: GameLevel) -> v
 	_owner_level = level
 	_direction = direction
 	
-func rb2d_on_body_enter(body: Node2D) -> void:
+func rb2d_on_body_enter(_body: Node2D) -> void:
 	print("Bullet hit solid something")
 	_bounces -= 1
 	if _bounces == 0:

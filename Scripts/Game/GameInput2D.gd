@@ -9,7 +9,7 @@ class InputAxis:
 		return 	_value
 	func set_value(val: float) -> void:
 		_value = val
-	func tick(delta: float) -> void:
+	func tick(_delta: float) -> void:
 		pass
 	
 class AxisDirect:
@@ -24,7 +24,7 @@ class AxisDirect:
 		_axisnum = axis
 		set_value(0)
 		
-	func tick(delta: float) -> void:
+	func tick(_delta: float) -> void:
 		if _device_type == IGameInput.ControllerType.GAMEPAD:
 			_value = Input.get_joy_axis(_device_id, _axisnum)
 		if _device_type == IGameInput.ControllerType.KEYBOARD:
@@ -86,7 +86,7 @@ func tick(delta: float) -> void:
 func add_axis_actions(axis: Input2DType, axisneg: GameAction, axispos: GameAction) -> void:
 	_mapping[axis] = AxisActions.new(axisneg, axispos)
 	
-func add_axis(axis: Input2DType, axisnum: int) -> void:
+func add_axis(axis: Input2DType, _axisnum: int) -> void:
 	_mapping[axis] = AxisDirect.new(_type, _device_id, axis)
 	
 
